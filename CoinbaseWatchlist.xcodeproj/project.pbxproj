@@ -8,12 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		BFF3BC1D225FEB8F002BABEA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF3BC1C225FEB8F002BABEA /* AppDelegate.swift */; };
-		BFF3BC1F225FEB8F002BABEA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF3BC1E225FEB8F002BABEA /* ViewController.swift */; };
+		BFF3BC1F225FEB8F002BABEA /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF3BC1E225FEB8F002BABEA /* MainViewController.swift */; };
 		BFF3BC22225FEB8F002BABEA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BFF3BC20225FEB8F002BABEA /* Main.storyboard */; };
 		BFF3BC25225FEB8F002BABEA /* CoinbaseWatchlist.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = BFF3BC23225FEB8F002BABEA /* CoinbaseWatchlist.xcdatamodeld */; };
 		BFF3BC27225FEB91002BABEA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BFF3BC26225FEB91002BABEA /* Assets.xcassets */; };
 		BFF3BC2A225FEB91002BABEA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BFF3BC28225FEB91002BABEA /* LaunchScreen.storyboard */; };
 		BFF3BC35225FEB91002BABEA /* CoinbaseWatchlistTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF3BC34225FEB91002BABEA /* CoinbaseWatchlistTests.swift */; };
+		BFF3BC40225FEC2F002BABEA /* CoinbaseAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF3BC3F225FEC2F002BABEA /* CoinbaseAPI.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,7 +30,7 @@
 /* Begin PBXFileReference section */
 		BFF3BC19225FEB8F002BABEA /* CoinbaseWatchlist.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoinbaseWatchlist.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BFF3BC1C225FEB8F002BABEA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		BFF3BC1E225FEB8F002BABEA /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		BFF3BC1E225FEB8F002BABEA /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		BFF3BC21225FEB8F002BABEA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		BFF3BC24225FEB8F002BABEA /* CoinbaseWatchlist.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoinbaseWatchlist.xcdatamodel; sourceTree = "<group>"; };
 		BFF3BC26225FEB91002BABEA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -38,6 +39,7 @@
 		BFF3BC30225FEB91002BABEA /* CoinbaseWatchlistTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CoinbaseWatchlistTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BFF3BC34225FEB91002BABEA /* CoinbaseWatchlistTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinbaseWatchlistTests.swift; sourceTree = "<group>"; };
 		BFF3BC36225FEB91002BABEA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BFF3BC3F225FEC2F002BABEA /* CoinbaseAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinbaseAPI.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,7 +82,8 @@
 			isa = PBXGroup;
 			children = (
 				BFF3BC1C225FEB8F002BABEA /* AppDelegate.swift */,
-				BFF3BC1E225FEB8F002BABEA /* ViewController.swift */,
+				BFF3BC1E225FEB8F002BABEA /* MainViewController.swift */,
+				BFF3BC3F225FEC2F002BABEA /* CoinbaseAPI.swift */,
 				BFF3BC20225FEB8F002BABEA /* Main.storyboard */,
 				BFF3BC26225FEB91002BABEA /* Assets.xcassets */,
 				BFF3BC28225FEB91002BABEA /* LaunchScreen.storyboard */,
@@ -200,8 +203,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BFF3BC1F225FEB8F002BABEA /* ViewController.swift in Sources */,
+				BFF3BC1F225FEB8F002BABEA /* MainViewController.swift in Sources */,
 				BFF3BC25225FEB8F002BABEA /* CoinbaseWatchlist.xcdatamodeld in Sources */,
+				BFF3BC40225FEC2F002BABEA /* CoinbaseAPI.swift in Sources */,
 				BFF3BC1D225FEB8F002BABEA /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
