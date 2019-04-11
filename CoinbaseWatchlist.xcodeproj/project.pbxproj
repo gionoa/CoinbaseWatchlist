@@ -1,0 +1,483 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		BFF3BC1D225FEB8F002BABEA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF3BC1C225FEB8F002BABEA /* AppDelegate.swift */; };
+		BFF3BC1F225FEB8F002BABEA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF3BC1E225FEB8F002BABEA /* ViewController.swift */; };
+		BFF3BC22225FEB8F002BABEA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BFF3BC20225FEB8F002BABEA /* Main.storyboard */; };
+		BFF3BC25225FEB8F002BABEA /* CoinbaseWatchlist.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = BFF3BC23225FEB8F002BABEA /* CoinbaseWatchlist.xcdatamodeld */; };
+		BFF3BC27225FEB91002BABEA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BFF3BC26225FEB91002BABEA /* Assets.xcassets */; };
+		BFF3BC2A225FEB91002BABEA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BFF3BC28225FEB91002BABEA /* LaunchScreen.storyboard */; };
+		BFF3BC35225FEB91002BABEA /* CoinbaseWatchlistTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF3BC34225FEB91002BABEA /* CoinbaseWatchlistTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		BFF3BC31225FEB91002BABEA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFF3BC11225FEB8F002BABEA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BFF3BC18225FEB8F002BABEA;
+			remoteInfo = CoinbaseWatchlist;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		BFF3BC19225FEB8F002BABEA /* CoinbaseWatchlist.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoinbaseWatchlist.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		BFF3BC1C225FEB8F002BABEA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		BFF3BC1E225FEB8F002BABEA /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		BFF3BC21225FEB8F002BABEA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		BFF3BC24225FEB8F002BABEA /* CoinbaseWatchlist.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoinbaseWatchlist.xcdatamodel; sourceTree = "<group>"; };
+		BFF3BC26225FEB91002BABEA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		BFF3BC29225FEB91002BABEA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		BFF3BC2B225FEB91002BABEA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BFF3BC30225FEB91002BABEA /* CoinbaseWatchlistTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CoinbaseWatchlistTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		BFF3BC34225FEB91002BABEA /* CoinbaseWatchlistTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinbaseWatchlistTests.swift; sourceTree = "<group>"; };
+		BFF3BC36225FEB91002BABEA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		BFF3BC16225FEB8F002BABEA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BFF3BC2D225FEB91002BABEA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		BFF3BC10225FEB8F002BABEA = {
+			isa = PBXGroup;
+			children = (
+				BFF3BC1B225FEB8F002BABEA /* CoinbaseWatchlist */,
+				BFF3BC33225FEB91002BABEA /* CoinbaseWatchlistTests */,
+				BFF3BC1A225FEB8F002BABEA /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		BFF3BC1A225FEB8F002BABEA /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				BFF3BC19225FEB8F002BABEA /* CoinbaseWatchlist.app */,
+				BFF3BC30225FEB91002BABEA /* CoinbaseWatchlistTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		BFF3BC1B225FEB8F002BABEA /* CoinbaseWatchlist */ = {
+			isa = PBXGroup;
+			children = (
+				BFF3BC1C225FEB8F002BABEA /* AppDelegate.swift */,
+				BFF3BC1E225FEB8F002BABEA /* ViewController.swift */,
+				BFF3BC20225FEB8F002BABEA /* Main.storyboard */,
+				BFF3BC26225FEB91002BABEA /* Assets.xcassets */,
+				BFF3BC28225FEB91002BABEA /* LaunchScreen.storyboard */,
+				BFF3BC2B225FEB91002BABEA /* Info.plist */,
+				BFF3BC23225FEB8F002BABEA /* CoinbaseWatchlist.xcdatamodeld */,
+			);
+			path = CoinbaseWatchlist;
+			sourceTree = "<group>";
+		};
+		BFF3BC33225FEB91002BABEA /* CoinbaseWatchlistTests */ = {
+			isa = PBXGroup;
+			children = (
+				BFF3BC34225FEB91002BABEA /* CoinbaseWatchlistTests.swift */,
+				BFF3BC36225FEB91002BABEA /* Info.plist */,
+			);
+			path = CoinbaseWatchlistTests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		BFF3BC18225FEB8F002BABEA /* CoinbaseWatchlist */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BFF3BC39225FEB91002BABEA /* Build configuration list for PBXNativeTarget "CoinbaseWatchlist" */;
+			buildPhases = (
+				BFF3BC15225FEB8F002BABEA /* Sources */,
+				BFF3BC16225FEB8F002BABEA /* Frameworks */,
+				BFF3BC17225FEB8F002BABEA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CoinbaseWatchlist;
+			productName = CoinbaseWatchlist;
+			productReference = BFF3BC19225FEB8F002BABEA /* CoinbaseWatchlist.app */;
+			productType = "com.apple.product-type.application";
+		};
+		BFF3BC2F225FEB91002BABEA /* CoinbaseWatchlistTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BFF3BC3C225FEB91002BABEA /* Build configuration list for PBXNativeTarget "CoinbaseWatchlistTests" */;
+			buildPhases = (
+				BFF3BC2C225FEB91002BABEA /* Sources */,
+				BFF3BC2D225FEB91002BABEA /* Frameworks */,
+				BFF3BC2E225FEB91002BABEA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				BFF3BC32225FEB91002BABEA /* PBXTargetDependency */,
+			);
+			name = CoinbaseWatchlistTests;
+			productName = CoinbaseWatchlistTests;
+			productReference = BFF3BC30225FEB91002BABEA /* CoinbaseWatchlistTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		BFF3BC11225FEB8F002BABEA /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1020;
+				LastUpgradeCheck = 1020;
+				ORGANIZATIONNAME = "Giovanni Noa";
+				TargetAttributes = {
+					BFF3BC18225FEB8F002BABEA = {
+						CreatedOnToolsVersion = 10.2;
+					};
+					BFF3BC2F225FEB91002BABEA = {
+						CreatedOnToolsVersion = 10.2;
+						TestTargetID = BFF3BC18225FEB8F002BABEA;
+					};
+				};
+			};
+			buildConfigurationList = BFF3BC14225FEB8F002BABEA /* Build configuration list for PBXProject "CoinbaseWatchlist" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = BFF3BC10225FEB8F002BABEA;
+			productRefGroup = BFF3BC1A225FEB8F002BABEA /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				BFF3BC18225FEB8F002BABEA /* CoinbaseWatchlist */,
+				BFF3BC2F225FEB91002BABEA /* CoinbaseWatchlistTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		BFF3BC17225FEB8F002BABEA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BFF3BC2A225FEB91002BABEA /* LaunchScreen.storyboard in Resources */,
+				BFF3BC27225FEB91002BABEA /* Assets.xcassets in Resources */,
+				BFF3BC22225FEB8F002BABEA /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BFF3BC2E225FEB91002BABEA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		BFF3BC15225FEB8F002BABEA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BFF3BC1F225FEB8F002BABEA /* ViewController.swift in Sources */,
+				BFF3BC25225FEB8F002BABEA /* CoinbaseWatchlist.xcdatamodeld in Sources */,
+				BFF3BC1D225FEB8F002BABEA /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BFF3BC2C225FEB91002BABEA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BFF3BC35225FEB91002BABEA /* CoinbaseWatchlistTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		BFF3BC32225FEB91002BABEA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BFF3BC18225FEB8F002BABEA /* CoinbaseWatchlist */;
+			targetProxy = BFF3BC31225FEB91002BABEA /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		BFF3BC20225FEB8F002BABEA /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BFF3BC21225FEB8F002BABEA /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		BFF3BC28225FEB91002BABEA /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BFF3BC29225FEB91002BABEA /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		BFF3BC37225FEB91002BABEA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		BFF3BC38225FEB91002BABEA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		BFF3BC3A225FEB91002BABEA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = CoinbaseWatchlist/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.GioNoa.CoinbaseWatchlist;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		BFF3BC3B225FEB91002BABEA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = CoinbaseWatchlist/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.GioNoa.CoinbaseWatchlist;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		BFF3BC3D225FEB91002BABEA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = CoinbaseWatchlistTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.GioNoa.CoinbaseWatchlistTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CoinbaseWatchlist.app/CoinbaseWatchlist";
+			};
+			name = Debug;
+		};
+		BFF3BC3E225FEB91002BABEA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = CoinbaseWatchlistTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.GioNoa.CoinbaseWatchlistTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CoinbaseWatchlist.app/CoinbaseWatchlist";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		BFF3BC14225FEB8F002BABEA /* Build configuration list for PBXProject "CoinbaseWatchlist" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BFF3BC37225FEB91002BABEA /* Debug */,
+				BFF3BC38225FEB91002BABEA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BFF3BC39225FEB91002BABEA /* Build configuration list for PBXNativeTarget "CoinbaseWatchlist" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BFF3BC3A225FEB91002BABEA /* Debug */,
+				BFF3BC3B225FEB91002BABEA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BFF3BC3C225FEB91002BABEA /* Build configuration list for PBXNativeTarget "CoinbaseWatchlistTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BFF3BC3D225FEB91002BABEA /* Debug */,
+				BFF3BC3E225FEB91002BABEA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		BFF3BC23225FEB8F002BABEA /* CoinbaseWatchlist.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				BFF3BC24225FEB8F002BABEA /* CoinbaseWatchlist.xcdatamodel */,
+			);
+			currentVersion = BFF3BC24225FEB8F002BABEA /* CoinbaseWatchlist.xcdatamodel */;
+			path = CoinbaseWatchlist.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = BFF3BC11225FEB8F002BABEA /* Project object */;
+}
