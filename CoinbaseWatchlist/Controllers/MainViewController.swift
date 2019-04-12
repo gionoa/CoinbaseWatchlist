@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  MainViewController.swift
 //  CoinbaseWatchlist
 //
 //  Created by gnoa001 on 4/11/19.

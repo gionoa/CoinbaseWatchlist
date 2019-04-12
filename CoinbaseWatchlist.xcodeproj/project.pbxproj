@@ -16,6 +16,7 @@
 		BFF3BC35225FEB91002BABEA /* CoinbaseWatchlistTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF3BC34225FEB91002BABEA /* CoinbaseWatchlistTests.swift */; };
 		BFF3BC40225FEC2F002BABEA /* CoinbaseAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF3BC3F225FEC2F002BABEA /* CoinbaseAPI.swift */; };
 		BFF3BC42225FF29E002BABEA /* Coin.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF3BC41225FF29E002BABEA /* Coin.swift */; };
+		BFF3BC4422601FBF002BABEA /* ModelController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF3BC4322601FBF002BABEA /* ModelController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +43,7 @@
 		BFF3BC36225FEB91002BABEA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BFF3BC3F225FEC2F002BABEA /* CoinbaseAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinbaseAPI.swift; sourceTree = "<group>"; };
 		BFF3BC41225FF29E002BABEA /* Coin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coin.swift; sourceTree = "<group>"; };
+		BFF3BC4322601FBF002BABEA /* ModelController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,9 +86,9 @@
 			isa = PBXGroup;
 			children = (
 				BFF3BC1C225FEB8F002BABEA /* AppDelegate.swift */,
-				BFF3BC1E225FEB8F002BABEA /* MainViewController.swift */,
-				BFF3BC3F225FEC2F002BABEA /* CoinbaseAPI.swift */,
-				BFF3BC41225FF29E002BABEA /* Coin.swift */,
+				BFF3BC4722602126002BABEA /* Models */,
+				BFF3BC4622602116002BABEA /* Controllers */,
+				BFF3BC4522602108002BABEA /* Network */,
 				BFF3BC20225FEB8F002BABEA /* Main.storyboard */,
 				BFF3BC26225FEB91002BABEA /* Assets.xcassets */,
 				BFF3BC28225FEB91002BABEA /* LaunchScreen.storyboard */,
@@ -103,6 +105,31 @@
 				BFF3BC36225FEB91002BABEA /* Info.plist */,
 			);
 			path = CoinbaseWatchlistTests;
+			sourceTree = "<group>";
+		};
+		BFF3BC4522602108002BABEA /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				BFF3BC3F225FEC2F002BABEA /* CoinbaseAPI.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		BFF3BC4622602116002BABEA /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				BFF3BC1E225FEB8F002BABEA /* MainViewController.swift */,
+				BFF3BC4322601FBF002BABEA /* ModelController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		BFF3BC4722602126002BABEA /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				BFF3BC41225FF29E002BABEA /* Coin.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -209,6 +236,7 @@
 				BFF3BC1F225FEB8F002BABEA /* MainViewController.swift in Sources */,
 				BFF3BC25225FEB8F002BABEA /* CoinbaseWatchlist.xcdatamodeld in Sources */,
 				BFF3BC40225FEC2F002BABEA /* CoinbaseAPI.swift in Sources */,
+				BFF3BC4422601FBF002BABEA /* ModelController.swift in Sources */,
 				BFF3BC42225FF29E002BABEA /* Coin.swift in Sources */,
 				BFF3BC1D225FEB8F002BABEA /* AppDelegate.swift in Sources */,
 			);

@@ -36,7 +36,7 @@ struct CoinbaseAPI {
                 }
                 
                 let decodedData = try JSONDecoder().decode(Data.self, from: data)
-                let coin = Coin(tickerSymbol: tickerSymbol, currency: decodedData.data.currency, price: decodedData.data.amount)
+                let coin = Coin(tickerSymbol: tickerSymbol, price: decodedData.data.amount, currency: decodedData.data.currency)
                 
                 completion(.success(coin))
                 
