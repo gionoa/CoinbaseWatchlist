@@ -15,7 +15,7 @@ enum NetworkError: Error {
 
 struct CoinbaseAPI {
     
-    func fetchData(tickerSymbol: String, currency: String, completion: @escaping ((Result<Coin, NetworkError>) -> Void)) {
+    static func fetchData(tickerSymbol: String, currency: String, completion: @escaping ((Result<Coin, NetworkError>) -> Void)) {
         let url = makeURL(tickerSymbol: tickerSymbol, currency: currency)
         
         URLSession.shared.dataTask(with: url) { (data, response, error) in
@@ -26,12 +26,18 @@ struct CoinbaseAPI {
             }
             
             do {
-                struct Data {
+                struct Data: Decodable {
+                    let data: DecodedCoin
+                }
+                
+                struct DecodedCoin: Decodable {
                     let amount: String
                     let currency: String
                 }
                 
-                let coin = try JSONDecoder().decode(Coin.self, from: data)
+                let decodedData = try JSONDecoder().decode(Data.self, from: data)
+                let coin = Coin(tickerSymbol: tickerSymbol, currency: decodedData.data.currency, price: decodedData.data.amount)
+                
                 completion(.success(coin))
                 
             } catch let decodingError {
@@ -41,7 +47,7 @@ struct CoinbaseAPI {
         }.resume()
     }
     
-    func makeURL(tickerSymbol: String, currency: String) -> URL {
+    fileprivate static func makeURL(tickerSymbol: String, currency: String) -> URL {
         return URL(string: "https://api.coinbase.com/v2/prices/\(tickerSymbol)-\(currency)/spot")!
     }
 }
