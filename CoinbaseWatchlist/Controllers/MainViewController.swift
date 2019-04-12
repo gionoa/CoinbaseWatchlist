@@ -20,11 +20,33 @@ class MainViewController: UIViewController {
         return tableView
     }()
 
+    let modelController = ModelController()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setupNavBar()
         setupUI()
+        
+        modelController.fetchData { error in
+            if let error = error {
+                print(error)
+                // alert
+            }
+            
+            print(self.modelController.dataSource)
+        }
+        
+//        CoinbaseAPI.fetchData(tickerSymbol: "BTC", currency: "USD") { result in
+//            switch result {
+//            case .success(let coin):
+//                print(coin)
+//            case .failure(let error):
+//                print(error)
+//            }
+//
+//        }
+        
     }
 
     func setupNavBar() {
@@ -52,5 +74,11 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         return UITableViewCell()
+    }
+}
+
+extension MainViewController: ModelControllerDelegate {
+    func workCompleted() {
+        print("tableView.reloadData()")
     }
 }
