@@ -20,80 +20,50 @@ import Foundation
 //    var output: ModelControllerOutput { get }
 //}
 
-protocol ModelControllerDelegate {
-    func workCompleted()
-}
-
-
 class ModelController {
 
-    // MARK: Properties
-    fileprivate var coins = [Coin]()
+    // MARK: - Properties
+    private (set) var dataSource = [Coin]()
+    private let tickerSymbols = ["BTC", "ETH", "BCH", "LTC", "ETC", "USDC", "ZEC", "ZRX", "BAT"]
+    private let currency = "USD"
     
-    let tickerSymbols = ["BTC", "ETH", "BCH", "LTC", "ETC", "USDC", "ZEC", "ZRX", "BAT"]
-    
-    var delegate: ModelControllerDelegate?
-    
-    var dataSource: [Coin] {
-        return coins
-    }
-    
-    var count: Int {
-        return dataSource.count
-    }
-    
-    var currency: String {
-        return "USD"
-    }
-    
-    func fetchData(_ completion: @escaping (Error?) -> Void) {
+    // MARK: - Fetch
+    func fetchData(completion: @escaping (Error?) -> Void) {
+        var error = NetworkError.decodingError("")
         let dispatchGroup = DispatchGroup()
         
-        dispatchGroup.enter()
-        fetchCoins(currency: currency) { (result) in
-            switch result {
-                case .success(let coins):
-                    self.coins = coins
-                case .failure(let error):
-                    completion(error)
-            }
-        }
-        dispatchGroup.leave()
-        
-        dispatchGroup.notify(queue: .main) {
-            self.delegate?.workCompleted()
-        }
-    }
-    
-    fileprivate func fetchCoins(currency: String, completion: @escaping (Result<[Coin], NetworkError>) -> Void) {
-        var currentCoins = [Coin]()
-        coins.reserveCapacity(tickerSymbols.count)
-        
-        var errorMessage = ""
         for tickerSymbol in tickerSymbols {
-            fetchCoin(tickerSymbol: tickerSymbol, currency: currency) { result in
+            
+            dispatchGroup.enter()
+            fetchCoin(tickerSymbol: tickerSymbol, currency: currency) { [weak self] result in
                 switch result {
                 case .success(let coin):
-                    currentCoins.append(coin)
-                    print(coin)
-                    print("Adding")
-                case .failure(let error):
-                    errorMessage = error.localizedDescription
+                    self?.dataSource.append(coin)
+                    
+                case .failure(let failureError):
+                    error = failureError
                 }
+                
+                dispatchGroup.leave()
             }
-            if currentCoins.count > 0 {
-                completion(.success(currentCoins))
+        }
+        
+        dispatchGroup.notify(queue: .main) {
+            if self.dataSource.count > 0 {
+                completion(nil)
+
+            } else {
+                completion(error)
             }
-            completion(.failure(.fetchingError(errorMessage)))
         }
     }
     
-    
-    fileprivate func fetchCoin(tickerSymbol: String, currency: String, completion: @escaping (Result<Coin, NetworkError>) -> Void) {
+    private func fetchCoin(tickerSymbol: String, currency: String, completion: @escaping (Result<Coin, NetworkError>) -> Void) {
         CoinbaseAPI.fetchData(tickerSymbol: tickerSymbol, currency: currency) { result in
             switch result {
             case .success(let coin):
                 completion(.success(coin))
+                
             case .failure(let error):
                 completion(.failure(error))
             }

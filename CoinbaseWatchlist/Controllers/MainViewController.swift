@@ -28,7 +28,7 @@ class MainViewController: UIViewController {
         setupNavBar()
         setupUI()
         
-        modelController.fetchData { error in
+        modelController.fetchData() { error in
             if let error = error {
                 print(error)
                 // alert
