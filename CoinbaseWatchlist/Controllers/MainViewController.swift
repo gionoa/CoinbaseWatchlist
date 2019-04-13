@@ -16,7 +16,7 @@ class MainViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         view.addSubview(tableView)
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "Cell") // TODO: create custom class
+        tableView.register(CoinTableViewCell.self, forCellReuseIdentifier: CoinTableViewCell.reuseID) // TODO: create custom class
         return tableView
     }()
 
