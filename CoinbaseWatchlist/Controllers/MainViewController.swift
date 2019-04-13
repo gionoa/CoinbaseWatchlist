@@ -36,17 +36,6 @@ class MainViewController: UIViewController {
             
             print(self.modelController.dataSource)
         }
-        
-//        CoinbaseAPI.fetchData(tickerSymbol: "BTC", currency: "USD") { result in
-//            switch result {
-//            case .success(let coin):
-//                print(coin)
-//            case .failure(let error):
-//                print(error)
-//            }
-//
-//        }
-        
     }
 
     func setupNavBar() {

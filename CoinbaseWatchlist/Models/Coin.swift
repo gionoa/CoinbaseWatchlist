@@ -7,10 +7,10 @@
 //
 
 import Foundation
+import UIKit
 
-struct Coin: Decodable {
+struct Coin  {
     let tickerSymbol: String
     let price: String
     let currency: String
-    
 }
