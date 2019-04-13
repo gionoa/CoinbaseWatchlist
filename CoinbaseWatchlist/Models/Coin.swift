@@ -12,4 +12,5 @@ struct Coin: Decodable {
     let tickerSymbol: String
     let price: String
     let currency: String
+    
 }

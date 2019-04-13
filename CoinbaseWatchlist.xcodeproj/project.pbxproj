@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		00941FC9E154B23C722A4B24 /* Pods_CoinbaseWatchlist.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F30F8611309D5E7674A340F8 /* Pods_CoinbaseWatchlist.framework */; };
+		BF22624B22611285002AFBFD /* CoinTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF22624A22611285002AFBFD /* CoinTableViewCell.swift */; };
 		BFF3BC1D225FEB8F002BABEA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF3BC1C225FEB8F002BABEA /* AppDelegate.swift */; };
 		BFF3BC1F225FEB8F002BABEA /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF3BC1E225FEB8F002BABEA /* MainViewController.swift */; };
 		BFF3BC22225FEB8F002BABEA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BFF3BC20225FEB8F002BABEA /* Main.storyboard */; };
@@ -17,6 +19,7 @@
 		BFF3BC40225FEC2F002BABEA /* CoinbaseAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF3BC3F225FEC2F002BABEA /* CoinbaseAPI.swift */; };
 		BFF3BC42225FF29E002BABEA /* Coin.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF3BC41225FF29E002BABEA /* Coin.swift */; };
 		BFF3BC4422601FBF002BABEA /* ModelController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF3BC4322601FBF002BABEA /* ModelController.swift */; };
+		D04F6D62EA5B52FAC2DA0445 /* Pods_CoinbaseWatchlistTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1CF7A0E1FB681F7A2C655090 /* Pods_CoinbaseWatchlistTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -30,6 +33,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1CF7A0E1FB681F7A2C655090 /* Pods_CoinbaseWatchlistTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CoinbaseWatchlistTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2A2D35C56A2AD6F91E00027C /* Pods-CoinbaseWatchlist.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoinbaseWatchlist.release.xcconfig"; path = "Target Support Files/Pods-CoinbaseWatchlist/Pods-CoinbaseWatchlist.release.xcconfig"; sourceTree = "<group>"; };
+		4BE1082FB6001F7C2FBB336A /* Pods-CoinbaseWatchlistTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoinbaseWatchlistTests.release.xcconfig"; path = "Target Support Files/Pods-CoinbaseWatchlistTests/Pods-CoinbaseWatchlistTests.release.xcconfig"; sourceTree = "<group>"; };
+		98B725AD20E2352A49A4FA8A /* Pods-CoinbaseWatchlistTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoinbaseWatchlistTests.debug.xcconfig"; path = "Target Support Files/Pods-CoinbaseWatchlistTests/Pods-CoinbaseWatchlistTests.debug.xcconfig"; sourceTree = "<group>"; };
+		BF22624A22611285002AFBFD /* CoinTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinTableViewCell.swift; sourceTree = "<group>"; };
 		BFF3BC19225FEB8F002BABEA /* CoinbaseWatchlist.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoinbaseWatchlist.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BFF3BC1C225FEB8F002BABEA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BFF3BC1E225FEB8F002BABEA /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -44,6 +52,8 @@
 		BFF3BC3F225FEC2F002BABEA /* CoinbaseAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinbaseAPI.swift; sourceTree = "<group>"; };
 		BFF3BC41225FF29E002BABEA /* Coin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coin.swift; sourceTree = "<group>"; };
 		BFF3BC4322601FBF002BABEA /* ModelController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelController.swift; sourceTree = "<group>"; };
+		C2E87EE9D7D9E5B416BC59CB /* Pods-CoinbaseWatchlist.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoinbaseWatchlist.debug.xcconfig"; path = "Target Support Files/Pods-CoinbaseWatchlist/Pods-CoinbaseWatchlist.debug.xcconfig"; sourceTree = "<group>"; };
+		F30F8611309D5E7674A340F8 /* Pods_CoinbaseWatchlist.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CoinbaseWatchlist.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,6 +61,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				00941FC9E154B23C722A4B24 /* Pods_CoinbaseWatchlist.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -58,18 +69,29 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D04F6D62EA5B52FAC2DA0445 /* Pods_CoinbaseWatchlistTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BF22624922611260002AFBFD /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				BF22624A22611285002AFBFD /* CoinTableViewCell.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		BFF3BC10225FEB8F002BABEA = {
 			isa = PBXGroup;
 			children = (
 				BFF3BC1B225FEB8F002BABEA /* CoinbaseWatchlist */,
 				BFF3BC33225FEB91002BABEA /* CoinbaseWatchlistTests */,
 				BFF3BC1A225FEB8F002BABEA /* Products */,
+				E98B1E68F12C2D2FD5A3573C /* Pods */,
+				C2484A7A4080430BA43BABC4 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -87,6 +109,7 @@
 			children = (
 				BFF3BC1C225FEB8F002BABEA /* AppDelegate.swift */,
 				BFF3BC4722602126002BABEA /* Models */,
+				BF22624922611260002AFBFD /* Views */,
 				BFF3BC4622602116002BABEA /* Controllers */,
 				BFF3BC4522602108002BABEA /* Network */,
 				BFF3BC20225FEB8F002BABEA /* Main.storyboard */,
@@ -132,6 +155,26 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		C2484A7A4080430BA43BABC4 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F30F8611309D5E7674A340F8 /* Pods_CoinbaseWatchlist.framework */,
+				1CF7A0E1FB681F7A2C655090 /* Pods_CoinbaseWatchlistTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E98B1E68F12C2D2FD5A3573C /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				C2E87EE9D7D9E5B416BC59CB /* Pods-CoinbaseWatchlist.debug.xcconfig */,
+				2A2D35C56A2AD6F91E00027C /* Pods-CoinbaseWatchlist.release.xcconfig */,
+				98B725AD20E2352A49A4FA8A /* Pods-CoinbaseWatchlistTests.debug.xcconfig */,
+				4BE1082FB6001F7C2FBB336A /* Pods-CoinbaseWatchlistTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -139,6 +182,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = BFF3BC39225FEB91002BABEA /* Build configuration list for PBXNativeTarget "CoinbaseWatchlist" */;
 			buildPhases = (
+				ED7EEB452AE5DA1331F614CD /* [CP] Check Pods Manifest.lock */,
 				BFF3BC15225FEB8F002BABEA /* Sources */,
 				BFF3BC16225FEB8F002BABEA /* Frameworks */,
 				BFF3BC17225FEB8F002BABEA /* Resources */,
@@ -156,6 +200,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = BFF3BC3C225FEB91002BABEA /* Build configuration list for PBXNativeTarget "CoinbaseWatchlistTests" */;
 			buildPhases = (
+				79E9D728F6345D495A36C08E /* [CP] Check Pods Manifest.lock */,
 				BFF3BC2C225FEB91002BABEA /* Sources */,
 				BFF3BC2D225FEB91002BABEA /* Frameworks */,
 				BFF3BC2E225FEB91002BABEA /* Resources */,
@@ -228,6 +273,53 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		79E9D728F6345D495A36C08E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-CoinbaseWatchlistTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		ED7EEB452AE5DA1331F614CD /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-CoinbaseWatchlist-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		BFF3BC15225FEB8F002BABEA /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -239,6 +331,7 @@
 				BFF3BC4422601FBF002BABEA /* ModelController.swift in Sources */,
 				BFF3BC42225FF29E002BABEA /* Coin.swift in Sources */,
 				BFF3BC1D225FEB8F002BABEA /* AppDelegate.swift in Sources */,
+				BF22624B22611285002AFBFD /* CoinTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -398,6 +491,7 @@
 		};
 		BFF3BC3A225FEB91002BABEA /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C2E87EE9D7D9E5B416BC59CB /* Pods-CoinbaseWatchlist.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -415,6 +509,7 @@
 		};
 		BFF3BC3B225FEB91002BABEA /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2A2D35C56A2AD6F91E00027C /* Pods-CoinbaseWatchlist.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -432,6 +527,7 @@
 		};
 		BFF3BC3D225FEB91002BABEA /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 98B725AD20E2352A49A4FA8A /* Pods-CoinbaseWatchlistTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -452,6 +548,7 @@
 		};
 		BFF3BC3E225FEB91002BABEA /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4BE1082FB6001F7C2FBB336A /* Pods-CoinbaseWatchlistTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
