@@ -77,8 +77,3 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
     }
 }
 
-extension MainViewController: ModelControllerDelegate {
-    func workCompleted() {
-        print("tableView.reloadData()")
-    }
-}
