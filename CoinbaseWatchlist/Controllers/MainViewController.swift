@@ -10,18 +10,22 @@ import UIKit
 
 class MainViewController: UIViewController {
     
+    // MARK: - Properties
     private lazy var tableView: UITableView = {
         let tableView = UITableView(frame: .zero, style: .plain)
         tableView.translatesAutoresizingMaskIntoConstraints = false
+        tableView.rowHeight = UITableView.automaticDimension
+        tableView.estimatedRowHeight = 100
         tableView.delegate = self
         tableView.dataSource = self
         view.addSubview(tableView)
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "Cell") // TODO: create custom class
+        tableView.register(CoinTableViewCell.self, forCellReuseIdentifier: CoinTableViewCell.reuseID)
         return tableView
     }()
 
-    let modelController = ModelController()
+    private let modelController = ModelController()
     
+    // MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -33,28 +37,17 @@ class MainViewController: UIViewController {
                 print(error)
                 // alert
             }
-            
-            print(self.modelController.dataSource)
+            self.tableView.reloadData()
         }
-        
-//        CoinbaseAPI.fetchData(tickerSymbol: "BTC", currency: "USD") { result in
-//            switch result {
-//            case .success(let coin):
-//                print(coin)
-//            case .failure(let error):
-//                print(error)
-//            }
-//
-//        }
-        
     }
 
-    func setupNavBar() {
+    // MARK: - Setup
+    private func setupNavBar() {
         navigationController?.navigationBar.prefersLargeTitles = true
         title = "Coinbase Markets"
     }
     
-    func setupUI() {
+    private func setupUI() {
         view.backgroundColor = .white
         
         let safeArea = view.safeAreaLayoutGuide
@@ -68,12 +61,19 @@ class MainViewController: UIViewController {
 }
 
 extension MainViewController: UITableViewDelegate, UITableViewDataSource {
+
+    //MARK: - TableView Delegate / DataSource
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0
+        return modelController.dataSource.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return UITableViewCell()
+        let cell = tableView.dequeueReusableCell(withIdentifier: CoinTableViewCell.reuseID, for: indexPath) as! CoinTableViewCell
+        
+        let coin = modelController.dataSource[indexPath.row]
+        cell.configure(coin)
+        
+        return cell
     }
 }
 
