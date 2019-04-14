@@ -10,6 +10,7 @@ import Foundation
 import UIKit
 
 struct Coin  {
+    let title: String?
     let tickerSymbol: String
     let price: String
     let currency: String

@@ -23,6 +23,7 @@ import Foundation
 class ModelController {
 
     // MARK: - Properties
+    
     private (set) var dataSource = [Coin]()
     private let tickerSymbols = ["BTC", "ETH", "BCH", "LTC", "ETC", "USDC", "ZEC", "ZRX", "BAT"]
     private let currency = "USD"

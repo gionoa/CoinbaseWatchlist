@@ -13,6 +13,8 @@ class MainViewController: UIViewController {
     private lazy var tableView: UITableView = {
         let tableView = UITableView(frame: .zero, style: .plain)
         tableView.translatesAutoresizingMaskIntoConstraints = false
+        tableView.rowHeight = UITableView.automaticDimension
+        tableView.estimatedRowHeight = 100
         tableView.delegate = self
         tableView.dataSource = self
         view.addSubview(tableView)
@@ -33,8 +35,7 @@ class MainViewController: UIViewController {
                 print(error)
                 // alert
             }
-            
-            print(self.modelController.dataSource)
+            self.tableView.reloadData()
         }
     }
 
@@ -58,11 +59,16 @@ class MainViewController: UIViewController {
 
 extension MainViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0
+        return modelController.dataSource.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return UITableViewCell()
+        let cell = tableView.dequeueReusableCell(withIdentifier: CoinTableViewCell.reuseID, for: indexPath) as! CoinTableViewCell
+        
+        let coin = modelController.dataSource[indexPath.row]
+        cell.configure(coin)
+        
+        return cell
     }
 }
 

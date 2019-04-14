@@ -15,6 +15,11 @@ enum NetworkError: Error {
 
 struct CoinbaseAPI {
     
+    static let coinTitles = ["BAT": "Basic Attention Token", "BTC": "Bitcoin", "ETH": "Ethereum",
+                             "XRP": "XRP (Ripple)", "BCH": "Bitcoin Cash", "LTC": "Litecoin",
+                             "XLM": "Stellar Lumens", "ETC": "Ethereum Classic", "ZEC": "Zcash",
+                             "USDC": "USD Coin", "ZRX": "0x"]
+
     static func fetchData(tickerSymbol: String, currency: String, completion: @escaping ((Result<Coin, NetworkError>) -> Void)) {
         let url = makeURL(tickerSymbol: tickerSymbol, currency: currency)
         
@@ -36,7 +41,10 @@ struct CoinbaseAPI {
                 }
                 
                 let decodedData = try JSONDecoder().decode(Data.self, from: data)
-                let coin = Coin(tickerSymbol: tickerSymbol, price: decodedData.data.amount, currency: decodedData.data.currency)
+                let coin = Coin(title: coinTitles[tickerSymbol],
+                                tickerSymbol: tickerSymbol,
+                                price: decodedData.data.amount,
+                                currency: decodedData.data.currency)
                 
                 completion(.success(coin))
                 
