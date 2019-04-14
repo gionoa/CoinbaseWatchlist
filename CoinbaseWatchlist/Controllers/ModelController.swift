@@ -8,27 +8,14 @@
 
 import Foundation
 
-//protocol ModelControllerInput {
-//}
-//
-//protocol ModelControllerOutput {
-//    var dataSource: [Coin] { get set }
-//    var count: Int { get }
-//}
-//protocol ModelControllerType: ModelControllerInput, ModelControllerOutput {
-//    var input: ModelControllerInput { get }
-//    var output: ModelControllerOutput { get }
-//}
-
 class ModelController {
 
     // MARK: - Properties
-    
     private (set) var dataSource = [Coin]()
     private let tickerSymbols = ["BTC", "ETH", "BCH", "LTC", "ETC", "USDC", "ZEC", "ZRX", "BAT"]
     private let currency = "USD"
     
-    // MARK: - Fetch
+    // MARK: - Network
     func fetchData(completion: @escaping (Error?) -> Void) {
         var error = NetworkError.decodingError("")
         let dispatchGroup = DispatchGroup()

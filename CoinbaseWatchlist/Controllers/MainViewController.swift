@@ -10,6 +10,7 @@ import UIKit
 
 class MainViewController: UIViewController {
     
+    // MARK: - Properties
     private lazy var tableView: UITableView = {
         let tableView = UITableView(frame: .zero, style: .plain)
         tableView.translatesAutoresizingMaskIntoConstraints = false
@@ -18,12 +19,13 @@ class MainViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         view.addSubview(tableView)
-        tableView.register(CoinTableViewCell.self, forCellReuseIdentifier: CoinTableViewCell.reuseID) // TODO: create custom class
+        tableView.register(CoinTableViewCell.self, forCellReuseIdentifier: CoinTableViewCell.reuseID)
         return tableView
     }()
 
-    let modelController = ModelController()
+    private let modelController = ModelController()
     
+    // MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -39,12 +41,13 @@ class MainViewController: UIViewController {
         }
     }
 
-    func setupNavBar() {
+    // MARK: - Setup
+    private func setupNavBar() {
         navigationController?.navigationBar.prefersLargeTitles = true
         title = "Coinbase Markets"
     }
     
-    func setupUI() {
+    private func setupUI() {
         view.backgroundColor = .white
         
         let safeArea = view.safeAreaLayoutGuide
@@ -58,6 +61,8 @@ class MainViewController: UIViewController {
 }
 
 extension MainViewController: UITableViewDelegate, UITableViewDataSource {
+
+    //MARK: - TableView Delegate / DataSource
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return modelController.dataSource.count
     }

@@ -10,6 +10,7 @@ import UIKit
 
 class CoinTableViewCell: UITableViewCell {
     
+    // MARK: - Properties
     static let reuseID = String(describing: CoinTableViewCell.self)
     
     private lazy var coinImageView: UIImageView = {
@@ -30,15 +31,15 @@ class CoinTableViewCell: UITableViewCell {
     
     private lazy var coinTickerLabel: UILabel = {
         let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
         label.adjustsFontForContentSizeCategory = true
         label.numberOfLines = 0
         label.font = UIFont.preferredFont(forTextStyle: .footnote)
         label.setContentHuggingPriority(.required, for: .horizontal)
-        label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
-    private lazy var currencyLabel: UILabel = {
+    private lazy var priceLabel: UILabel = {
         let label = UILabel()
         label.adjustsFontForContentSizeCategory = true
         label.numberOfLines = 0
@@ -47,7 +48,7 @@ class CoinTableViewCell: UITableViewCell {
         return label
     }()
     
-    private lazy var priceLabel: UILabel = {
+    private lazy var currencyLabel: UILabel = {
         let label = UILabel()
         label.adjustsFontForContentSizeCategory = true
         label.numberOfLines = 0
@@ -75,6 +76,7 @@ class CoinTableViewCell: UITableViewCell {
         return stackView
     }()
     
+    // MARK: - init
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
@@ -85,9 +87,7 @@ class CoinTableViewCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    
-    // remove image from stackview
-    
+    // MARK: - Setup
     private func setupCell() {
         contentView.addSubview(coinImageView)
         contentView.addSubview(stackView)
@@ -103,7 +103,7 @@ class CoinTableViewCell: UITableViewCell {
         stackTopAnchor.priority = .defaultHigh
         stackBottomAnchor.priority = .defaultLow
         contentView.addConstraints([
-            coinImageView.heightAnchor.constraint(equalToConstant: 64),//contentView.heightAnchor, constant: -(inset * 4)),
+            coinImageView.heightAnchor.constraint(equalToConstant: 64),
             coinImageView.widthAnchor.constraint(equalToConstant: 64),
             coinImageView.topAnchor.constraint(greaterThanOrEqualTo: margins.topAnchor),
             coinImageView.bottomAnchor.constraint(lessThanOrEqualTo: margins.bottomAnchor),
@@ -120,8 +120,8 @@ class CoinTableViewCell: UITableViewCell {
             ])
     }
     
+    // MARK: - Helpers
     func configure(_ coin: Coin) {
-        
         coinImageView.image = UIImage(named: coin.tickerSymbol)
         coinTitleLabel.text = coin.title
         coinTickerLabel.text = coin.tickerSymbol
