@@ -15,7 +15,7 @@ class MainViewController: UIViewController {
         let tableView = UITableView(frame: .zero, style: .plain)
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.rowHeight = UITableView.automaticDimension
-        tableView.estimatedRowHeight = 100
+        tableView.estimatedRowHeight = 81
         tableView.delegate = self
         tableView.dataSource = self
         view.addSubview(tableView)
@@ -70,10 +70,20 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: CoinTableViewCell.reuseID, for: indexPath) as! CoinTableViewCell
         
-        let coin = modelController.dataSource[indexPath.row]
+        let coin = modelController.coin(at: indexPath.row)
         cell.configure(coin)
+        cell.layoutIfNeeded()
         
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        
+        let coin = modelController.coin(at: indexPath.row)
+        let detailVC = CoinDetailViewController(coin)
+        
+        navigationController?.pushViewController(detailVC, animated: true)
     }
 }
 

@@ -25,55 +25,39 @@ class CoinTableViewCell: UITableViewCell {
         label.adjustsFontForContentSizeCategory = true
         label.numberOfLines = 0
         label.font = UIFont.preferredFont(forTextStyle: .headline)
+       // label.setContentHuggingPriority(.defaultLow, for: .vertical)
+        label.setContentCompressionResistancePriority(.required, for: .vertical)
+        return label
+    }()
+    
+    private lazy var tickerSymbolLabel: UILabel = {
+        let label = UILabel()
+        label.adjustsFontForContentSizeCategory = true
+        label.numberOfLines = 0 // change back to 0 if needed
+        label.font = UIFont.preferredFont(forTextStyle: .footnote)
         label.setContentHuggingPriority(.defaultHigh, for: .vertical)
+        label.textColor = .darkGray
         return label
-    }()
-    
-    private lazy var coinTickerLabel: UILabel = {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.adjustsFontForContentSizeCategory = true
-        label.numberOfLines = 0
-        label.font = UIFont.preferredFont(forTextStyle: .footnote)
-        label.setContentHuggingPriority(.required, for: .horizontal)
-        return label
-    }()
-    
-    private lazy var priceLabel: UILabel = {
-        let label = UILabel()
-        label.adjustsFontForContentSizeCategory = true
-        label.numberOfLines = 0
-        label.font = UIFont.preferredFont(forTextStyle: .footnote)
-        label.setContentHuggingPriority(.required, for: .vertical)
-        return label
-    }()
-    
-    private lazy var currencyLabel: UILabel = {
-        let label = UILabel()
-        label.adjustsFontForContentSizeCategory = true
-        label.numberOfLines = 0
-        label.font = UIFont.preferredFont(forTextStyle: .footnote)
-        label.setContentHuggingPriority(.required, for: .vertical)
-        return label
-    }()
-    
-    private lazy var usdStackView: UIStackView = { // dollar, currency; horizontal
-        let stackView = UIStackView(arrangedSubviews: [priceLabel, currencyLabel])
-        stackView.axis = .horizontal
-        stackView.alignment = .fill
-        stackView.distribution = .equalCentering
-        stackView.spacing = 8
-        return stackView
     }()
     
     private lazy var stackView: UIStackView = { // main horizontal stackview
-        let stackView = UIStackView(arrangedSubviews: [coinTitleLabel, usdStackView])
+        let stackView = UIStackView(arrangedSubviews: [coinTitleLabel, tickerSymbolLabel])
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = .vertical
         stackView.alignment = .leading
         stackView.distribution = .fill
-        stackView.spacing = 8
+        stackView.spacing = 2
         return stackView
+    }()
+    
+    private lazy var priceLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.adjustsFontForContentSizeCategory = true
+        label.numberOfLines = 0
+        label.font = UIFont.preferredFont(forTextStyle: .headline)
+        label.setContentHuggingPriority(.defaultHigh, for: .horizontal)
+        return label
     }()
     
     // MARK: - init
@@ -91,32 +75,34 @@ class CoinTableViewCell: UITableViewCell {
     private func setupCell() {
         contentView.addSubview(coinImageView)
         contentView.addSubview(stackView)
-        contentView.addSubview(coinTickerLabel)
+        contentView.addSubview(priceLabel)
         
         accessoryType = .disclosureIndicator
         
         let inset: CGFloat = 8.0
         let margins = contentView.layoutMarginsGuide
         
-        let stackTopAnchor = stackView.topAnchor.constraint(greaterThanOrEqualTo: margins.topAnchor)
-        let stackBottomAnchor = stackView.bottomAnchor.constraint(greaterThanOrEqualTo: margins.bottomAnchor)
+        let stackTopAnchor = stackView.topAnchor.constraint(greaterThanOrEqualTo: margins.topAnchor, constant: inset) // change back to greater / less if needed
+        let stackBottomAnchor = stackView.bottomAnchor.constraint(lessThanOrEqualTo: margins.bottomAnchor, constant: -inset)
         stackTopAnchor.priority = .defaultHigh
         stackBottomAnchor.priority = .defaultLow
+
         contentView.addConstraints([
             coinImageView.heightAnchor.constraint(equalToConstant: 64),
             coinImageView.widthAnchor.constraint(equalToConstant: 64),
-            coinImageView.topAnchor.constraint(greaterThanOrEqualTo: margins.topAnchor),
-            coinImageView.bottomAnchor.constraint(lessThanOrEqualTo: margins.bottomAnchor),
-            coinImageView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
+            coinImageView.topAnchor.constraint(equalTo: margins.topAnchor),
+            coinImageView.bottomAnchor.constraint(equalTo: margins.bottomAnchor),
+            coinImageView.centerYAnchor.constraint(equalTo: margins.centerYAnchor),
             coinImageView.leadingAnchor.constraint(equalTo: margins.leadingAnchor),
-            coinImageView.trailingAnchor.constraint(equalTo: stackView.leadingAnchor, constant: -(inset * 2)),
+           // coinImageView.trailingAnchor.constraint(equalTo: stackView.leadingAnchor, constant: -(inset * 2)),
         
             stackTopAnchor, stackBottomAnchor,
             stackView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
-            stackView.trailingAnchor.constraint(equalTo: coinTickerLabel.leadingAnchor, constant: -inset),
+            stackView.leadingAnchor.constraint(equalTo: coinImageView.trailingAnchor, constant: inset * 2),
+            stackView.trailingAnchor.constraint(equalTo: priceLabel.leadingAnchor, constant: -inset),
             
-            coinTickerLabel.trailingAnchor.constraint(equalTo: margins.trailingAnchor, constant: inset),
-            coinTickerLabel.centerYAnchor.constraint(equalTo: margins.centerYAnchor)
+            priceLabel.trailingAnchor.constraint(equalTo: margins.trailingAnchor, constant: inset),
+            priceLabel.centerYAnchor.constraint(equalTo: margins.centerYAnchor)
             ])
     }
     
@@ -124,9 +110,14 @@ class CoinTableViewCell: UITableViewCell {
     func configure(_ coin: Coin) {
         coinImageView.image = UIImage(named: coin.tickerSymbol)
         coinTitleLabel.text = coin.title
-        coinTickerLabel.text = coin.tickerSymbol
-        currencyLabel.text = coin.currency
-        priceLabel.text = "$\(coin.price)"
+        tickerSymbolLabel.text = coin.tickerSymbol
+        
+        let price = formatFloat(coin.price)
+        priceLabel.text = "$\(price)"
+    }
+    
+    func formatFloat(_ priceText: String) -> String {
+        let price: Float = (priceText as NSString).floatValue
+        return String(format: "%.2f", price)
     }
 }
-

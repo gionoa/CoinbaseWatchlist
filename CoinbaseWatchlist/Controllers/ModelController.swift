@@ -12,7 +12,7 @@ class ModelController {
 
     // MARK: - Properties
     private (set) var dataSource = [Coin]()
-    private let tickerSymbols = ["BTC", "ETH", "BCH", "LTC", "ETC", "USDC", "ZEC", "ZRX", "BAT"]
+    private let tickerSymbols = ["BTC", "ETH", "BCH", "LTC", "ETC", "USDC", "ZEC", "ZRX", "BAT", "XRP", "XLM"]
     private let currency = "USD"
     
     // MARK: - Network
@@ -56,5 +56,9 @@ class ModelController {
                 completion(.failure(error))
             }
         }
+    }
+    
+    func coin(at index: Int) -> Coin {
+        return dataSource[index]
     }
 }
