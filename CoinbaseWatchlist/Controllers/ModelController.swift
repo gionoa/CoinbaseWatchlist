@@ -13,7 +13,7 @@ class ModelController {
     // MARK: - Properties
     private (set) var dataSource = [Coin]()
     private let tickerSymbols = ["BTC", "ETH", "BCH", "LTC", "ETC", "USDC", "ZEC", "ZRX", "BAT", "XRP", "XLM"]
-    private let currency = "USD"
+    private (set) var currency = "USD"
     
     // MARK: - Network
     func fetchData(completion: @escaping (Error?) -> Void) {

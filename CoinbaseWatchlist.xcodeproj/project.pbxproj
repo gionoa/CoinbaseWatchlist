@@ -10,6 +10,7 @@
 		00941FC9E154B23C722A4B24 /* Pods_CoinbaseWatchlist.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F30F8611309D5E7674A340F8 /* Pods_CoinbaseWatchlist.framework */; };
 		BF22624B22611285002AFBFD /* CoinTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF22624A22611285002AFBFD /* CoinTableViewCell.swift */; };
 		BF22627C2262DE4D002AFBFD /* CoinDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF22627B2262DE4D002AFBFD /* CoinDetailViewController.swift */; };
+		BFC0BBF12264EBA600120B2D /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFC0BBF02264EBA600120B2D /* Extensions.swift */; };
 		BFF3BC1D225FEB8F002BABEA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF3BC1C225FEB8F002BABEA /* AppDelegate.swift */; };
 		BFF3BC1F225FEB8F002BABEA /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF3BC1E225FEB8F002BABEA /* MainViewController.swift */; };
 		BFF3BC22225FEB8F002BABEA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BFF3BC20225FEB8F002BABEA /* Main.storyboard */; };
@@ -40,6 +41,7 @@
 		98B725AD20E2352A49A4FA8A /* Pods-CoinbaseWatchlistTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoinbaseWatchlistTests.debug.xcconfig"; path = "Target Support Files/Pods-CoinbaseWatchlistTests/Pods-CoinbaseWatchlistTests.debug.xcconfig"; sourceTree = "<group>"; };
 		BF22624A22611285002AFBFD /* CoinTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinTableViewCell.swift; sourceTree = "<group>"; };
 		BF22627B2262DE4D002AFBFD /* CoinDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinDetailViewController.swift; sourceTree = "<group>"; };
+		BFC0BBF02264EBA600120B2D /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		BFF3BC19225FEB8F002BABEA /* CoinbaseWatchlist.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoinbaseWatchlist.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BFF3BC1C225FEB8F002BABEA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BFF3BC1E225FEB8F002BABEA /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -119,6 +121,7 @@
 				BFF3BC28225FEB91002BABEA /* LaunchScreen.storyboard */,
 				BFF3BC2B225FEB91002BABEA /* Info.plist */,
 				BFF3BC23225FEB8F002BABEA /* CoinbaseWatchlist.xcdatamodeld */,
+				BFC0BBF02264EBA600120B2D /* Extensions.swift */,
 			);
 			path = CoinbaseWatchlist;
 			sourceTree = "<group>";
@@ -329,6 +332,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BFF3BC1F225FEB8F002BABEA /* MainViewController.swift in Sources */,
+				BFC0BBF12264EBA600120B2D /* Extensions.swift in Sources */,
 				BFF3BC25225FEB8F002BABEA /* CoinbaseWatchlist.xcdatamodeld in Sources */,
 				BFF3BC40225FEC2F002BABEA /* CoinbaseAPI.swift in Sources */,
 				BFF3BC4422601FBF002BABEA /* ModelController.swift in Sources */,

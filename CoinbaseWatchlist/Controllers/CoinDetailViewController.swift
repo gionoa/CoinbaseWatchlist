@@ -20,7 +20,6 @@ class CoinDetailViewController: UIViewController {
         super.init(nibName: nil, bundle: nil)
         
         title = coin.title
-        
     }
     
     required init?(coder aDecoder: NSCoder) {
