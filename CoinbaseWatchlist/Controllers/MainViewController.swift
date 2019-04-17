@@ -23,15 +23,13 @@ class MainViewController: UIViewController {
         return tableView
     }()
 
-    private let modelController = ModelController()
+    private let modelController = CoinsModelController()
     
     
     // MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-      //  currencyView.delegate = self
-        
+                
         setupNavBar()
         setupUI()
         
@@ -42,10 +40,7 @@ class MainViewController: UIViewController {
             }
             self.tableView.reloadData()
         }
-        
-//        CoinbaseAPI.fetchCurrencies { (result) in
-//            print(result)
-//        }
+
     }
 
     // MARK: - Setup
@@ -53,10 +48,7 @@ class MainViewController: UIViewController {
         navigationController?.navigationBar.prefersLargeTitles = true
         title = "Coinbase Markets"
         
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "USD", style: .plain, target: self, action: #selector(barButtonTapped(_:)))
-      //  navigationItem.rightBarButtonItem = UIBarButtonItem(customView: currencyView)
-        // navigationItem.rightBarButtonItem?.setTitlePositionAdjustment(.init(horizontal: 0, vertical: 25),
-        //                                                                for: UIBarMetrics.default)
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: modelController.currency, style: .plain, target: self, action: #selector(barButtonTapped(_:)))
     }
     
     private func setupUI() {
@@ -74,7 +66,7 @@ class MainViewController: UIViewController {
     @objc private func barButtonTapped(_ sender: UIBarButtonItem) {
         let vc = UINavigationController(rootViewController: CurrencyViewController())
         
-        vc.modalPresentationStyle = .overCurrentContext
+        //vc.modalPresentationStyle = .overCurrentContext
         present(vc, animated: true)
     }
 }

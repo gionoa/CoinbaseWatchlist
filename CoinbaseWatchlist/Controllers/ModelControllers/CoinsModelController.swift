@@ -8,7 +8,7 @@
 
 import Foundation
 
-class ModelController {
+class CoinsModelController {
 
     // MARK: - Properties
     private (set) var dataSource = [Coin]()
