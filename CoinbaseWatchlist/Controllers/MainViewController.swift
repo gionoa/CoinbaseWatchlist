@@ -25,22 +25,15 @@ class MainViewController: UIViewController {
 
     private let modelController = ModelController()
     
-    private let currencyView: UITextField = {
-        let textField = UITextField()
-        textField.textColor = .coinbaseBlue
-        return textField
-    }()
     
     // MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        currencyView.delegate = self
+      //  currencyView.delegate = self
         
         setupNavBar()
         setupUI()
-        setupPickerView()
-        createToolbar()
         
         modelController.fetchData() { error in
             if let error = error {
@@ -56,8 +49,8 @@ class MainViewController: UIViewController {
         navigationController?.navigationBar.prefersLargeTitles = true
         title = "Coinbase Markets"
         
-       
-        navigationItem.rightBarButtonItem = UIBarButtonItem(customView: currencyView)
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "USD", style: .plain, target: self, action: #selector(barButtonTapped(_:)))
+      //  navigationItem.rightBarButtonItem = UIBarButtonItem(customView: currencyView)
         // navigationItem.rightBarButtonItem?.setTitlePositionAdjustment(.init(horizontal: 0, vertical: 25),
         //                                                                for: UIBarMetrics.default)
     }
@@ -74,41 +67,12 @@ class MainViewController: UIViewController {
             ])
     }
     
-    
-    func setupPickerView() {
-        currencyView.text = modelController.currency
-
-        let pickerView = UIPickerView()
-        pickerView.delegate = self
+    @objc private func barButtonTapped(_ sender: UIBarButtonItem) {
+        let vc = UINavigationController(rootViewController: CurrencyViewController())
         
-        currencyView.inputView = pickerView
+        vc.modalPresentationStyle = .overCurrentContext
+        present(vc, animated: true)
     }
-    
-    func createToolbar() {
-        
-        let toolBar = UIToolbar()
-        toolBar.sizeToFit()
-        
-        // Customizations
-      //  toolBar.barTintColor = .coinbaseBlue
-       // toolBar.tintColor = .yellow
-        
-        let doneButton = UIBarButtonItem(title: "Done", style: .plain, target: self, action: #selector(dismissKeyboard(_:)))
-      //  doneButton.tintColor = .white
-        
-        toolBar.setItems([doneButton], animated: false)
-        toolBar.isUserInteractionEnabled = true
-        
-        currencyView.inputAccessoryView = toolBar
-    }
-    
-    @objc private func dismissKeyboard(_ sender: UIBarButtonItem) {
-        currencyView.endEditing(true)
-    }
-    
-//    @objc private func currencyButtonTapped(_ sender: UIBarButtonItem) {
-//
-//    }
 }
 
 extension MainViewController: UITableViewDelegate, UITableViewDataSource {
@@ -136,27 +100,4 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
         
         navigationController?.pushViewController(detailVC, animated: true)
     }
-}
-
-extension MainViewController: UIPickerViewDelegate, UIPickerViewDataSource {
-    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return 2
-    }
-    
-    func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        return 1
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return "USD"
-    }
-}
-
-
-extension MainViewController: UITextFieldDelegate {
-//    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
-//        currencyView.resignFirstResponder()
-//        
-//        return false
-//    }
 }

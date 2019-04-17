@@ -10,6 +10,7 @@
 		00941FC9E154B23C722A4B24 /* Pods_CoinbaseWatchlist.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F30F8611309D5E7674A340F8 /* Pods_CoinbaseWatchlist.framework */; };
 		BF22624B22611285002AFBFD /* CoinTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF22624A22611285002AFBFD /* CoinTableViewCell.swift */; };
 		BF22627C2262DE4D002AFBFD /* CoinDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF22627B2262DE4D002AFBFD /* CoinDetailViewController.swift */; };
+		BFBAED7A2266C4BC0011C2D5 /* CurrencyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFBAED792266C4BC0011C2D5 /* CurrencyViewController.swift */; };
 		BFC0BBF12264EBA600120B2D /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFC0BBF02264EBA600120B2D /* Extensions.swift */; };
 		BFF3BC1D225FEB8F002BABEA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF3BC1C225FEB8F002BABEA /* AppDelegate.swift */; };
 		BFF3BC1F225FEB8F002BABEA /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF3BC1E225FEB8F002BABEA /* MainViewController.swift */; };
@@ -41,6 +42,7 @@
 		98B725AD20E2352A49A4FA8A /* Pods-CoinbaseWatchlistTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoinbaseWatchlistTests.debug.xcconfig"; path = "Target Support Files/Pods-CoinbaseWatchlistTests/Pods-CoinbaseWatchlistTests.debug.xcconfig"; sourceTree = "<group>"; };
 		BF22624A22611285002AFBFD /* CoinTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinTableViewCell.swift; sourceTree = "<group>"; };
 		BF22627B2262DE4D002AFBFD /* CoinDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinDetailViewController.swift; sourceTree = "<group>"; };
+		BFBAED792266C4BC0011C2D5 /* CurrencyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyViewController.swift; sourceTree = "<group>"; };
 		BFC0BBF02264EBA600120B2D /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		BFF3BC19225FEB8F002BABEA /* CoinbaseWatchlist.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoinbaseWatchlist.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BFF3BC1C225FEB8F002BABEA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -147,6 +149,7 @@
 			isa = PBXGroup;
 			children = (
 				BFF3BC1E225FEB8F002BABEA /* MainViewController.swift */,
+				BFBAED792266C4BC0011C2D5 /* CurrencyViewController.swift */,
 				BF22627B2262DE4D002AFBFD /* CoinDetailViewController.swift */,
 				BFF3BC4322601FBF002BABEA /* ModelController.swift */,
 			);
@@ -340,6 +343,7 @@
 				BFF3BC42225FF29E002BABEA /* Coin.swift in Sources */,
 				BFF3BC1D225FEB8F002BABEA /* AppDelegate.swift in Sources */,
 				BF22624B22611285002AFBFD /* CoinTableViewCell.swift in Sources */,
+				BFBAED7A2266C4BC0011C2D5 /* CurrencyViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
