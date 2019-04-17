@@ -68,7 +68,7 @@ class MainViewController: UIViewController {
     }
     
     @objc private func barButtonTapped(_ sender: UIBarButtonItem) {
-        let vc = UINavigationController(rootViewController: CurrencyViewController(currency: modelController.currency))
+        let vc = UINavigationController(rootViewController: CurrencyViewController())
         
         vc.modalPresentationStyle = .overCurrentContext
         present(vc, animated: true)

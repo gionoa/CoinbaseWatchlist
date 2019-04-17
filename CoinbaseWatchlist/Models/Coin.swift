@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import UIKit
 
 struct Coin  {
     let title: String?

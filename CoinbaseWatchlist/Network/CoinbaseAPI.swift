@@ -14,6 +14,11 @@ enum NetworkError: Error {
     case decodingError(String)
 }
 
+enum CoinbaseQuery {
+    case coin
+    case currency
+}
+
 struct CoinbaseAPI {
     
     // MARK: - Properties
@@ -58,8 +63,16 @@ struct CoinbaseAPI {
         }.resume()
     }
     
+    static func fetchCurrencies(completion: @escaping (Result<[Currency], NetworkError>) -> Void) {
+        
+    }
+    
     // MARK: - Helpers
     fileprivate static func makeURL(tickerSymbol: String, currency: String) -> URL {
         return URL(string: "https://api.coinbase.com/v2/prices/\(tickerSymbol)-\(currency)/spot")!
+    }
+    
+    fileprivate static func makeURL() -> URL {
+        return URL(string: "https://api.coinbase.com/v2/currencies")!
     }
 }

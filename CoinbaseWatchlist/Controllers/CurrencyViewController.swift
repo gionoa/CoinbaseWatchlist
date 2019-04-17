@@ -13,18 +13,9 @@ class CurrencyViewController: UIViewController {
     private lazy var tableView: UITableView = {
         let tableView = UITableView(frame: .zero, style: .plain)
         tableView.translatesAutoresizingMaskIntoConstraints = false
+        
         return tableView
     }()
-
-    init(currency: String) {
-        super.init(nibName: nil, bundle: nil)
-        
-        title = currency
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,11 +24,13 @@ class CurrencyViewController: UIViewController {
     }
     
     private func setupUI() {
+        title = "Currencies"
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done,
                                                             target: self,
                                                             action: #selector(doneButtonTapped(_:)))
         
-        //view.backgroundColor = .init(red: 0.5, green: 0.5, blue: 0.5, alpha: 0.8)
+        navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(cancelButtonTapped(_:)))
+        
         view.backgroundColor = .white
         view.addSubview(tableView)
         
@@ -51,6 +44,11 @@ class CurrencyViewController: UIViewController {
     }
     
     @objc private func doneButtonTapped(_ sender: UIBarButtonItem) {
+        // change currency and reload
+        self.dismiss(animated: true)
+    }
+    
+    @objc private func cancelButtonTapped(_ sender: UIBarButtonItem) {
         self.dismiss(animated: true)
     }
 }

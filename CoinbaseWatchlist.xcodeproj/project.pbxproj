@@ -11,6 +11,7 @@
 		BF22624B22611285002AFBFD /* CoinTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF22624A22611285002AFBFD /* CoinTableViewCell.swift */; };
 		BF22627C2262DE4D002AFBFD /* CoinDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF22627B2262DE4D002AFBFD /* CoinDetailViewController.swift */; };
 		BFBAED7A2266C4BC0011C2D5 /* CurrencyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFBAED792266C4BC0011C2D5 /* CurrencyViewController.swift */; };
+		BFBAED7C2267A0A50011C2D5 /* Currency.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFBAED7B2267A0A50011C2D5 /* Currency.swift */; };
 		BFC0BBF12264EBA600120B2D /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFC0BBF02264EBA600120B2D /* Extensions.swift */; };
 		BFF3BC1D225FEB8F002BABEA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF3BC1C225FEB8F002BABEA /* AppDelegate.swift */; };
 		BFF3BC1F225FEB8F002BABEA /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF3BC1E225FEB8F002BABEA /* MainViewController.swift */; };
@@ -43,6 +44,7 @@
 		BF22624A22611285002AFBFD /* CoinTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinTableViewCell.swift; sourceTree = "<group>"; };
 		BF22627B2262DE4D002AFBFD /* CoinDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinDetailViewController.swift; sourceTree = "<group>"; };
 		BFBAED792266C4BC0011C2D5 /* CurrencyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyViewController.swift; sourceTree = "<group>"; };
+		BFBAED7B2267A0A50011C2D5 /* Currency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Currency.swift; sourceTree = "<group>"; };
 		BFC0BBF02264EBA600120B2D /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		BFF3BC19225FEB8F002BABEA /* CoinbaseWatchlist.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoinbaseWatchlist.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BFF3BC1C225FEB8F002BABEA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -160,6 +162,7 @@
 			isa = PBXGroup;
 			children = (
 				BFF3BC41225FF29E002BABEA /* Coin.swift */,
+				BFBAED7B2267A0A50011C2D5 /* Currency.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -340,6 +343,7 @@
 				BFF3BC40225FEC2F002BABEA /* CoinbaseAPI.swift in Sources */,
 				BFF3BC4422601FBF002BABEA /* ModelController.swift in Sources */,
 				BF22627C2262DE4D002AFBFD /* CoinDetailViewController.swift in Sources */,
+				BFBAED7C2267A0A50011C2D5 /* Currency.swift in Sources */,
 				BFF3BC42225FF29E002BABEA /* Coin.swift in Sources */,
 				BFF3BC1D225FEB8F002BABEA /* AppDelegate.swift in Sources */,
 				BF22624B22611285002AFBFD /* CoinTableViewCell.swift in Sources */,
