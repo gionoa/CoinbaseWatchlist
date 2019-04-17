@@ -42,6 +42,10 @@ class MainViewController: UIViewController {
             }
             self.tableView.reloadData()
         }
+        
+//        CoinbaseAPI.fetchCurrencies { (result) in
+//            print(result)
+//        }
     }
 
     // MARK: - Setup
