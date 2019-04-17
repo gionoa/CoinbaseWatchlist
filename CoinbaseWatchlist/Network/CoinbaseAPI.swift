@@ -40,10 +40,10 @@ struct CoinbaseAPI {
             
             do {
                 struct Data: Decodable {
-                    let data: DecodedCoin
+                    let data: CoinData
                 }
                 
-                struct DecodedCoin: Decodable {
+                struct CoinData: Decodable {
                     let amount: String
                     let currency: String
                 }
@@ -64,7 +64,39 @@ struct CoinbaseAPI {
     }
     
     static func fetchCurrencies(completion: @escaping (Result<[Currency], NetworkError>) -> Void) {
+        let url = makeURL()
         
+        URLSession.shared.dataTask(with: url) { (data, response, error) in
+            guard let data = data, error == nil else {
+                let result = NetworkError.fetchingError(error!.localizedDescription)
+                completion(.failure(result))
+                return
+            }
+            
+            do {
+                struct Data: Decodable {
+                    let data: [CurrencyData]
+                }
+                
+                struct CurrencyData: Decodable {
+                    let id: String
+                    let name: String
+                    let min_size: String
+                }
+                
+                let decodedData = try JSONDecoder().decode(Data.self, from: data)
+                let currencies = decodedData.data.map { currency in
+                    return Currency(symbol: currency.id, name: currency.name)
+                }
+                
+                print(currencies)
+                completion(.success(currencies))
+                
+            } catch let decodingError {
+                let result = NetworkError.fetchingError(decodingError.localizedDescription)
+                completion(.failure(result))
+            }
+        }.resume()
     }
     
     // MARK: - Helpers
