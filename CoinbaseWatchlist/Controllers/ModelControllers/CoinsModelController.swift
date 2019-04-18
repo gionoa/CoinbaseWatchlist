@@ -11,7 +11,11 @@ import Foundation
 class CoinsModelController {
 
     // MARK: - Properties
-    private (set) var dataSource = [Coin]()
+    private (set) var dataSource = [Coin]() {
+        didSet {
+            dataSource.sort { $0.title! <  $1.title! }
+        }
+    }
     private let tickerSymbols = ["BTC", "ETH", "BCH", "LTC", "ETC", "USDC", "ZEC", "ZRX", "BAT", "XRP", "XLM"]
     var currency = "USD"
     
@@ -37,7 +41,6 @@ class CoinsModelController {
                 dispatchGroup.leave()
             }
         }
-        
         dispatchGroup.notify(queue: .main) {
             if self.dataSource.count > 0 {
                 completion(nil)
