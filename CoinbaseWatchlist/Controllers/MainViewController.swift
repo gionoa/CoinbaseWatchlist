@@ -15,6 +15,7 @@ class MainViewController: UIViewController {
         let tableView = UITableView(frame: .zero, style: .plain)
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.rowHeight = UITableView.automaticDimension
+        tableView.cellLayoutMarginsFollowReadableWidth = true
         tableView.estimatedRowHeight = 81
         tableView.delegate = self
         tableView.dataSource = self
@@ -24,7 +25,6 @@ class MainViewController: UIViewController {
     }()
 
     private let modelController = CoinsModelController()
-    
     
     // MARK: - Life Cycle
     override func viewDidLoad() {
@@ -40,7 +40,6 @@ class MainViewController: UIViewController {
             }
             self.tableView.reloadData()
         }
-
     }
 
     // MARK: - Setup
@@ -64,10 +63,12 @@ class MainViewController: UIViewController {
     }
     
     @objc private func barButtonTapped(_ sender: UIBarButtonItem) {
-        let vc = UINavigationController(rootViewController: CurrencyViewController())
+        let navigationController = UINavigationController(rootViewController: CurrencyViewController())
         
-        //vc.modalPresentationStyle = .overCurrentContext
-        present(vc, animated: true)
+        let currencyVC = navigationController.viewControllers.first as? CurrencyViewController
+        currencyVC?.delegate = self
+        
+        present(navigationController, animated: true)
     }
 }
 
@@ -82,7 +83,7 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: CoinTableViewCell.reuseID, for: indexPath) as! CoinTableViewCell
         
         let coin = modelController.coin(at: indexPath.row)
-        cell.configure(coin)
+        cell.configure(coin, currency: modelController.currency)
         cell.layoutIfNeeded()
         
         return cell
@@ -96,4 +97,18 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
         
         navigationController?.pushViewController(detailVC, animated: true)
     }
+}
+
+extension MainViewController: CurrencyDelegate {
+    func didSelectCurrency(currency: String) {
+        modelController.currency = currency
+        
+        modelController.fetchData { (error) in
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+        }
+    }
+    
+    
 }

@@ -8,10 +8,17 @@
 
 import UIKit
 
+protocol CurrencyDelegate: class {
+    func didSelectCurrency(currency: String)
+}
+
 class CurrencyViewController: UIViewController {
+    
+    weak var delegate: CurrencyDelegate?
     
     private lazy var tableView: UITableView = {
         let tableView = UITableView(frame: .zero, style: .plain)
+        tableView.cellLayoutMarginsFollowReadableWidth = true
         tableView.delegate = self
         tableView.dataSource = self
         tableView.translatesAutoresizingMaskIntoConstraints = false
@@ -35,9 +42,6 @@ class CurrencyViewController: UIViewController {
     
     private func setupUI() {
         title = NSLocalizedString("Currencies", comment: "")
-        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done,
-                                                            target: self,
-                                                            action: #selector(doneButtonTapped(_:)))
         
         navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel,
                                                            target: self,
@@ -56,14 +60,6 @@ class CurrencyViewController: UIViewController {
         }
     }
     
-    @objc private func doneButtonTapped(_ sender: UIBarButtonItem) {
-        // change currency and reload
-        // refactor to didSelect
-        // delegate selection
-        // perhaps dismiss on parent
-        self.dismiss(animated: true)
-    }
-    
     @objc private func cancelButtonTapped(_ sender: UIBarButtonItem) {
         self.dismiss(animated: true)
     }
@@ -80,5 +76,9 @@ extension CurrencyViewController: UITableViewDelegate, UITableViewDataSource {
         return cell
     }
     
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        delegate?.didSelectCurrency(currency: modelController.dataSource[indexPath.row].symbol)
+        dismiss(animated: true)
+    }
 }

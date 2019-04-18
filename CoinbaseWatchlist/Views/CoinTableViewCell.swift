@@ -107,13 +107,18 @@ class CoinTableViewCell: UITableViewCell {
     }
     
     // MARK: - Helpers
-    func configure(_ coin: Coin) {
+    func configure(_ coin: Coin, currency: String) {
         coinImageView.image = UIImage(named: coin.tickerSymbol)
         coinTitleLabel.text = coin.title
         tickerSymbolLabel.text = coin.tickerSymbol
         
         let price = formatFloat(coin.price)
-        priceLabel.text = "$\(price)"
+        if currency == "USD" {
+            priceLabel.text = "$\(price)"
+        } else {
+            priceLabel.text = "\(price) \(currency)"
+        }
+        
     }
     
     func formatFloat(_ priceText: String) -> String {

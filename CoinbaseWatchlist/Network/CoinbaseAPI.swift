@@ -89,7 +89,6 @@ struct CoinbaseAPI {
                     return Currency(symbol: currency.id, name: currency.name)
                 }
                 
-               // print(currencies)
                 completion(.success(currencies))
                 
             } catch let decodingError {
