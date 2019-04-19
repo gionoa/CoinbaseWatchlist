@@ -26,7 +26,7 @@ class MainViewController: UIViewController {
 
     private let modelController = CoinsModelController()
     
-    private var usdButton: UIBarButtonItem!
+    private var currencyButton: UIBarButtonItem!
     
     // MARK: - Life Cycle
     override func viewDidLoad() {
@@ -49,20 +49,17 @@ class MainViewController: UIViewController {
         navigationController?.navigationBar.prefersLargeTitles = true
         title = "Coinbase Markets"
         
-        usdButton = UIBarButtonItem(title: "USD", style: .plain, target: self, action: #selector(barButtonTapped(_:)))
-        navigationItem.rightBarButtonItem = usdButton
+        currencyButton = UIBarButtonItem(title: "USD", style: .plain, target: self, action: #selector(barButtonTapped(_:)))
+        navigationItem.rightBarButtonItem = currencyButton
     }
     
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+        
+        tableView.frame = view.bounds
+    }
     private func setupUI() {
         view.backgroundColor = .white
-        
-        let safeArea = view.safeAreaLayoutGuide
-        view.addConstraints([
-            tableView.topAnchor.constraint(equalTo: safeArea.topAnchor),
-            tableView.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor),
-            tableView.trailingAnchor.constraint(equalTo: safeArea.trailingAnchor),
-            tableView.bottomAnchor.constraint(equalTo: safeArea.bottomAnchor)
-            ])
     }
     
     @objc private func barButtonTapped(_ sender: UIBarButtonItem) {
@@ -104,8 +101,9 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
 
 extension MainViewController: CurrencyDelegate {
     func didSelectCurrency(currency: String) {
-        modelController.currency = currency
-        usdButton.title = currency
+        modelController.currencyDidChange(currency)
+        currencyButton.title = currency
+        
         modelController.fetchData { (error) in
             DispatchQueue.main.async {
                 self.tableView.reloadData()

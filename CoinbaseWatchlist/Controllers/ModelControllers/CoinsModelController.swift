@@ -67,3 +67,9 @@ class CoinsModelController {
         return dataSource[index]
     }
 }
+
+extension CoinsModelController {
+    func currencyDidChange(_ currency: String) {
+        self.currency = currency
+    }
+}
