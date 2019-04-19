@@ -1,3 +1,11 @@
 # Coinbase Watchlist
 
-<img width="406" alt="Screen Shot 2019-04-13 at 10 22 11 PM" src="https://user-images.githubusercontent.com/25107535/56087513-b0de8d00-5e3a-11e9-98cb-5dc272e2c4ba.png">
+A watchlist for cryptocurrency markets on found on www.Coinbase.com
+
+## Features
+  - View current prices 
+  - View prices in a currency of your choice
+  - DynamicType support
+  
+![currency](https://user-images.githubusercontent.com/25107535/56405304-c3413800-6239-11e9-9a96-08c1d23402b9.gif)
+
