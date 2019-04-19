@@ -1,6 +1,6 @@
 # Coinbase Watchlist
 
-A watchlist for cryptocurrency markets on found on www.Coinbase.com
+A watchlist for cryptocurrency markets found on www.Coinbase.com
 
 ## Features
   - View current prices 
