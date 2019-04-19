@@ -8,6 +8,10 @@
 
 import UIKit
 
+enum Keys: String {
+    case currency 
+}
+
 class MainViewController: UIViewController {
     
     // MARK: - Properties
@@ -28,10 +32,13 @@ class MainViewController: UIViewController {
     
     private var currencyButton: UIBarButtonItem!
     
+    private let defaults = UserDefaults.standard
+    
     // MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-                
+        
+        checkForCurrency()
         setupNavBar()
         setupUI()
         
@@ -49,7 +56,7 @@ class MainViewController: UIViewController {
         navigationController?.navigationBar.prefersLargeTitles = true
         title = "Coinbase Markets"
         
-        currencyButton = UIBarButtonItem(title: "USD", style: .plain, target: self, action: #selector(barButtonTapped(_:)))
+        currencyButton = UIBarButtonItem(title: modelController.currency, style: .plain, target: self, action: #selector(barButtonTapped(_:)))
         navigationItem.rightBarButtonItem = currencyButton
     }
     
@@ -58,8 +65,19 @@ class MainViewController: UIViewController {
         
         tableView.frame = view.bounds
     }
+    
     private func setupUI() {
         view.backgroundColor = .white
+    }
+    
+    private func saveCurrency() {
+        defaults.set(modelController.currency, forKey: Keys.currency.rawValue)
+    }
+    
+    private func checkForCurrency() {
+        if let currency = defaults.string(forKey: Keys.currency.rawValue) {
+            modelController.currency = currency
+        }
     }
     
     @objc private func barButtonTapped(_ sender: UIBarButtonItem) {
@@ -103,6 +121,7 @@ extension MainViewController: CurrencyDelegate {
     func didSelectCurrency(currency: String) {
         modelController.currencyDidChange(currency)
         currencyButton.title = currency
+        saveCurrency()
         
         modelController.fetchData { (error) in
             DispatchQueue.main.async {
