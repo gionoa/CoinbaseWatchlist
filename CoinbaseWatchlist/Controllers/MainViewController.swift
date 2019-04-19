@@ -14,7 +14,7 @@ class MainViewController: UIViewController {
     private lazy var tableView: UITableView = {
         let tableView = UITableView(frame: .zero, style: .plain)
         tableView.translatesAutoresizingMaskIntoConstraints = false
-        tableView.rowHeight = UITableView.automaticDimension
+        tableView.rowHeight = (UITableView.automaticDimension).rounded()
         tableView.cellLayoutMarginsFollowReadableWidth = true
         tableView.estimatedRowHeight = 81
         tableView.delegate = self
@@ -25,6 +25,8 @@ class MainViewController: UIViewController {
     }()
 
     private let modelController = CoinsModelController()
+    
+    private var usdButton: UIBarButtonItem!
     
     // MARK: - Life Cycle
     override func viewDidLoad() {
@@ -47,7 +49,8 @@ class MainViewController: UIViewController {
         navigationController?.navigationBar.prefersLargeTitles = true
         title = "Coinbase Markets"
         
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: modelController.currency, style: .plain, target: self, action: #selector(barButtonTapped(_:)))
+        usdButton = UIBarButtonItem(title: "USD", style: .plain, target: self, action: #selector(barButtonTapped(_:)))
+        navigationItem.rightBarButtonItem = usdButton
     }
     
     private func setupUI() {
@@ -102,7 +105,7 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
 extension MainViewController: CurrencyDelegate {
     func didSelectCurrency(currency: String) {
         modelController.currency = currency
-        
+        usdButton.title = currency
         modelController.fetchData { (error) in
             DispatchQueue.main.async {
                 self.tableView.reloadData()

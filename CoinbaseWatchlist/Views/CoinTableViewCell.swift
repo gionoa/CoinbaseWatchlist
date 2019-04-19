@@ -118,7 +118,7 @@ class CoinTableViewCell: UITableViewCell {
         } else {
             priceLabel.text = "\(price) \(currency)"
         }
-        
+        layoutIfNeeded()
     }
     
     func formatFloat(_ priceText: String) -> String {
