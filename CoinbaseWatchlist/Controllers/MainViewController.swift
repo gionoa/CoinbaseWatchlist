@@ -18,8 +18,8 @@ class MainViewController: UIViewController {
     private lazy var tableView: UITableView = {
         let tableView = UITableView(frame: .zero, style: .plain)
         tableView.translatesAutoresizingMaskIntoConstraints = false
-        tableView.rowHeight = (UITableView.automaticDimension).rounded()
-        tableView.estimatedRowHeight = 81
+        tableView.rowHeight = UITableView.automaticDimension
+        tableView.estimatedRowHeight = 100
         tableView.cellLayoutMarginsFollowReadableWidth = true
         tableView.delegate = self
         tableView.dataSource = self
