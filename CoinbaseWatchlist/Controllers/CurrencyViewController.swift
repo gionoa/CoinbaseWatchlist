@@ -21,8 +21,10 @@ class CurrencyViewController: UIViewController {
         tableView.cellLayoutMarginsFollowReadableWidth = true
         tableView.delegate = self
         tableView.dataSource = self
+        tableView.rowHeight =  UITableView.automaticDimension
+        tableView.estimatedRowHeight = 70
         tableView.translatesAutoresizingMaskIntoConstraints = false
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
+        tableView.register(CurrencyTableViewCell.self, forCellReuseIdentifier: CurrencyTableViewCell.reuseIdentifier)
         return tableView
     }()
     
@@ -71,8 +73,8 @@ extension CurrencyViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
-        cell.textLabel?.text = modelController.dataSource[indexPath.row].symbol
+        let cell = tableView.dequeueReusableCell(withIdentifier: CurrencyTableViewCell.reuseIdentifier, for: indexPath) as! CurrencyTableViewCell
+        cell.configure(modelController.dataSource[indexPath.row])
         return cell
     }
     

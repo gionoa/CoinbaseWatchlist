@@ -10,6 +10,7 @@
 		00941FC9E154B23C722A4B24 /* Pods_CoinbaseWatchlist.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F30F8611309D5E7674A340F8 /* Pods_CoinbaseWatchlist.framework */; };
 		BF22624B22611285002AFBFD /* CoinTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF22624A22611285002AFBFD /* CoinTableViewCell.swift */; };
 		BF22627C2262DE4D002AFBFD /* CoinDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF22627B2262DE4D002AFBFD /* CoinDetailViewController.swift */; };
+		BF251F73226BC63000BEA0EB /* CurrencyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF251F72226BC63000BEA0EB /* CurrencyTableViewCell.swift */; };
 		BFBAED7A2266C4BC0011C2D5 /* CurrencyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFBAED792266C4BC0011C2D5 /* CurrencyViewController.swift */; };
 		BFBAED7C2267A0A50011C2D5 /* Currency.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFBAED7B2267A0A50011C2D5 /* Currency.swift */; };
 		BFBAED7E2267AB010011C2D5 /* CurrenciesModelController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFBAED7D2267AB010011C2D5 /* CurrenciesModelController.swift */; };
@@ -44,6 +45,7 @@
 		98B725AD20E2352A49A4FA8A /* Pods-CoinbaseWatchlistTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoinbaseWatchlistTests.debug.xcconfig"; path = "Target Support Files/Pods-CoinbaseWatchlistTests/Pods-CoinbaseWatchlistTests.debug.xcconfig"; sourceTree = "<group>"; };
 		BF22624A22611285002AFBFD /* CoinTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinTableViewCell.swift; sourceTree = "<group>"; };
 		BF22627B2262DE4D002AFBFD /* CoinDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinDetailViewController.swift; sourceTree = "<group>"; };
+		BF251F72226BC63000BEA0EB /* CurrencyTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyTableViewCell.swift; sourceTree = "<group>"; };
 		BFBAED792266C4BC0011C2D5 /* CurrencyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyViewController.swift; sourceTree = "<group>"; };
 		BFBAED7B2267A0A50011C2D5 /* Currency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Currency.swift; sourceTree = "<group>"; };
 		BFBAED7D2267AB010011C2D5 /* CurrenciesModelController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrenciesModelController.swift; sourceTree = "<group>"; };
@@ -90,6 +92,7 @@
 			isa = PBXGroup;
 			children = (
 				BF22624A22611285002AFBFD /* CoinTableViewCell.swift */,
+				BF251F72226BC63000BEA0EB /* CurrencyTableViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -353,6 +356,7 @@
 				BFF3BC25225FEB8F002BABEA /* CoinbaseWatchlist.xcdatamodeld in Sources */,
 				BFF3BC40225FEC2F002BABEA /* CoinbaseAPI.swift in Sources */,
 				BFF3BC4422601FBF002BABEA /* CoinsModelController.swift in Sources */,
+				BF251F73226BC63000BEA0EB /* CurrencyTableViewCell.swift in Sources */,
 				BF22627C2262DE4D002AFBFD /* CoinDetailViewController.swift in Sources */,
 				BFBAED7E2267AB010011C2D5 /* CurrenciesModelController.swift in Sources */,
 				BFBAED7C2267A0A50011C2D5 /* Currency.swift in Sources */,

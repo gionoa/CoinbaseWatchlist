@@ -19,8 +19,8 @@ class MainViewController: UIViewController {
         let tableView = UITableView(frame: .zero, style: .plain)
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.rowHeight = (UITableView.automaticDimension).rounded()
-        tableView.cellLayoutMarginsFollowReadableWidth = true
         tableView.estimatedRowHeight = 81
+        tableView.cellLayoutMarginsFollowReadableWidth = true
         tableView.delegate = self
         tableView.dataSource = self
         view.addSubview(tableView)
@@ -38,9 +38,8 @@ class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        checkForCurrency()
+        loadUserDefaults()
         setupNavBar()
-        setupUI()
         
         modelController.fetchData() { error in
             if let error = error {
@@ -70,11 +69,11 @@ class MainViewController: UIViewController {
         view.backgroundColor = .white
     }
     
-    private func saveCurrency() {
+    private func saveUserDefaults() {
         defaults.set(modelController.currency, forKey: Keys.currency.rawValue)
     }
     
-    private func checkForCurrency() {
+    private func loadUserDefaults() {
         if let currency = defaults.string(forKey: Keys.currency.rawValue) {
             modelController.currency = currency
         }
@@ -118,10 +117,12 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
 }
 
 extension MainViewController: CurrencyDelegate {
+    
+    // MARK - Currency Delegate
     func didSelectCurrency(currency: String) {
         modelController.currencyDidChange(currency)
         currencyButton.title = currency
-        saveCurrency()
+        saveUserDefaults()
         
         modelController.fetchData { (error) in
             DispatchQueue.main.async {
