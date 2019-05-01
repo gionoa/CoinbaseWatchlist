@@ -30,10 +30,21 @@ class CurrencyViewController: UIViewController {
     
     private let modelController = CurrenciesModelController()
     
+    private let searchController = UISearchController(searchResultsController: nil)
+    
+    private var searchBarIsEmpty: Bool {
+        return searchController.searchBar.text?.isEmpty ?? true
+    }
+    
+    private var isFiltering: Bool {
+        return searchController.isActive && !searchBarIsEmpty
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setupUI()
+        setupSearchController()
     }
     
     override func viewWillLayoutSubviews() {
@@ -62,6 +73,15 @@ class CurrencyViewController: UIViewController {
         }
     }
     
+    fileprivate func setupSearchController() {
+        searchController.searchResultsUpdater = self
+        searchController.obscuresBackgroundDuringPresentation = false
+        searchController.searchBar.placeholder = "Search Currencies"
+        navigationItem.searchController = searchController
+        navigationItem.hidesSearchBarWhenScrolling = false
+        definesPresentationContext = true
+    }
+    
     @objc private func cancelButtonTapped(_ sender: UIBarButtonItem) {
         self.dismiss(animated: true)
     }
@@ -69,12 +89,25 @@ class CurrencyViewController: UIViewController {
 
 extension CurrencyViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if isFiltering {
+            return modelController.filteredDataSource.count
+        }
         return modelController.dataSource.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: CurrencyTableViewCell.reuseIdentifier, for: indexPath) as! CurrencyTableViewCell
-        cell.configure(modelController.dataSource[indexPath.row])
+        
+        
+        let model: Currency
+        if isFiltering {
+            model = modelController.filteredDataSource[indexPath.row]
+        } else {
+            model = modelController.dataSource[indexPath.row]
+        }
+        
+        cell.configure(model)
+        
         return cell
     }
     
@@ -82,5 +115,18 @@ extension CurrencyViewController: UITableViewDelegate, UITableViewDataSource {
         tableView.deselectRow(at: indexPath, animated: true)
         delegate?.didSelectCurrency(currency: modelController.dataSource[indexPath.row].symbol)
         dismiss(animated: true)
+    }
+}
+
+extension CurrencyViewController: UISearchResultsUpdating {
+
+    func updateSearchResults(for searchController: UISearchController) {
+        guard let searchText = searchController.searchBar.text?.lowercased(),
+              searchText.isEmpty == false else { return }
+        
+        let filteredData =  modelController.dataSource.filter { $0.symbol.lowercased().contains(searchText) }
+        modelController.filteredDataSource = filteredData
+        
+        tableView.reloadData()
     }
 }

@@ -12,6 +12,8 @@ class CurrenciesModelController {
     
     private (set) var dataSource = [Currency]()
     
+    var filteredDataSource = [Currency]()
+    
     func fetchCurrencies(completion: @escaping (Error?) -> Void) {
         CoinbaseAPI.fetchCurrencies { (result) in
             switch result {
@@ -23,4 +25,6 @@ class CurrenciesModelController {
             }
         }
     }
+    
+    // number of rows in section 
 }

@@ -48,10 +48,11 @@ class CoinTableViewCell: UITableViewCell {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.adjustsFontForContentSizeCategory = true
+
         label.adjustsFontSizeToFitWidth = true
         label.textAlignment = .right
       //  label.numberOfLines = 2
-        label.font = UIFont.preferredFont(forTextStyle: .caption2)
+        label.font = UIFont.preferredFont(forTextStyle: .headline)
         label.setContentCompressionResistancePriority(.required, for: .horizontal)
        // label.setContentHuggingPriority(.defaultHigh, for: .horizontal)
         return label
@@ -62,6 +63,9 @@ class CoinTableViewCell: UITableViewCell {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
         setupCell()
+        // try to make nav title adjust
+        // appstore connect
+        // provisioning profiles
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -87,6 +91,7 @@ class CoinTableViewCell: UITableViewCell {
             coinImageView.topAnchor.constraint(greaterThanOrEqualTo: margins.topAnchor),
             coinImageView.bottomAnchor.constraint(lessThanOrEqualTo: margins.bottomAnchor),
             coinImageView.centerYAnchor.constraint(equalTo: margins.centerYAnchor),
+            // swap top/bottom w center y 0 find constraints issue of imageview lines 87-88, 89
         
             coinTitleLabel.topAnchor.constraint(equalTo: margins.topAnchor, constant: inset / 2),
             coinTitleLabel.leadingAnchor.constraint(equalTo: coinImageView.trailingAnchor, constant: inset),
