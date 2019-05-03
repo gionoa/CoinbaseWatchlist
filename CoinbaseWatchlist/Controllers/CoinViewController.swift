@@ -12,7 +12,7 @@ enum Keys: String {
     case currency 
 }
 
-class MainViewController: UIViewController {
+class CoinViewController: UIViewController {
     
     // MARK: - Properties
     private lazy var tableView: UITableView = {
@@ -28,7 +28,7 @@ class MainViewController: UIViewController {
         return tableView
     }()
 
-    private let modelController = CoinsModelController()
+    private let modelController = CoinModelController()
     
     private var currencyButton: UIBarButtonItem!
     
@@ -89,7 +89,7 @@ class MainViewController: UIViewController {
     }
 }
 
-extension MainViewController: UITableViewDelegate, UITableViewDataSource {
+extension CoinViewController: UITableViewDelegate, UITableViewDataSource {
 
     //MARK: - TableView Delegate / DataSource
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -116,7 +116,7 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
     }
 }
 
-extension MainViewController: CurrencyDelegate {
+extension CoinViewController: CurrencyDelegate {
     
     // MARK - Currency Delegate
     func didSelectCurrency(currency: String) {

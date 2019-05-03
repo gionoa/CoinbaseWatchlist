@@ -9,6 +9,6 @@
 import Foundation
 
 struct Currency {
-    let symbol: String
-    let name: String
+    let tickerSymbol: String
+    let title: String
 }

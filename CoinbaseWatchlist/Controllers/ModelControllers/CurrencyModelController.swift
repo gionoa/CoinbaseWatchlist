@@ -8,7 +8,7 @@
 
 import Foundation
 
-class CurrenciesModelController {
+class CurrencyModelController {
     
     private (set) var dataSource = [Currency]()
     

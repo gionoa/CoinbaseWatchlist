@@ -86,7 +86,7 @@ struct CoinbaseAPI {
                 
                 let decodedData = try JSONDecoder().decode(Data.self, from: data)
                 let currencies = decodedData.data.map { currency in
-                    return Currency(symbol: currency.id, name: currency.name)
+                    return Currency(tickerSymbol: currency.id, title: currency.name)
                 }
                 
                 completion(.success(currencies))

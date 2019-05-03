@@ -28,7 +28,7 @@ class CurrencyViewController: UIViewController {
         return tableView
     }()
     
-    private let modelController = CurrenciesModelController()
+    private let modelController = CurrencyModelController()
     
     private let searchController = UISearchController(searchResultsController: nil)
     
@@ -113,7 +113,7 @@ extension CurrencyViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        delegate?.didSelectCurrency(currency: modelController.dataSource[indexPath.row].symbol)
+        delegate?.didSelectCurrency(currency: modelController.dataSource[indexPath.row].tickerSymbol)
         dismiss(animated: true)
     }
 }
@@ -124,7 +124,7 @@ extension CurrencyViewController: UISearchResultsUpdating {
         guard let searchText = searchController.searchBar.text?.lowercased(),
               searchText.isEmpty == false else { return }
         
-        let filteredData =  modelController.dataSource.filter { $0.symbol.lowercased().contains(searchText) }
+        let filteredData =  modelController.dataSource.filter { $0.tickerSymbol.lowercased().contains(searchText) }
         modelController.filteredDataSource = filteredData
         
         tableView.reloadData()

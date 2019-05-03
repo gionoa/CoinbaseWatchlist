@@ -8,7 +8,7 @@
 
 import Foundation
 
-class CoinsModelController {
+class CoinModelController {
 
     // MARK: - Properties
     private (set) var dataSource = [Coin]() {
@@ -16,6 +16,7 @@ class CoinsModelController {
             dataSource.sort { $0.title! <  $1.title! }
         }
     }
+    
     private let tickerSymbols = ["BTC", "ETH", "BCH", "LTC", "ETC", "USDC", "ZEC", "ZRX", "BAT", "XRP", "XLM"]
     var currency = "USD"
     
@@ -68,7 +69,7 @@ class CoinsModelController {
     }
 }
 
-extension CoinsModelController {
+extension CoinModelController {
     func currencyDidChange(_ currency: String) {
         self.currency = currency
     }

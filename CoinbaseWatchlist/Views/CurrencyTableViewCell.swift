@@ -65,7 +65,7 @@ class CurrencyTableViewCell: UITableViewCell {
     
     // MARK: - Helpers
     func configure(_ currency: Currency) {
-        currencyLabel.text = currency.name
-        tickerSymbolLabel.text = currency.symbol
+        currencyLabel.text = currency.title
+        tickerSymbolLabel.text = currency.tickerSymbol
     }
 }
