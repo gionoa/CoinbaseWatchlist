@@ -8,9 +8,6 @@
 
 import UIKit
 
-enum Keys: String {
-    case currency 
-}
 
 class CoinViewController: UIViewController {
     
@@ -70,7 +67,7 @@ class CoinViewController: UIViewController {
     }
     
     private func saveUserDefaults() {
-        defaults.set(modelController.currency, forKey: Keys.currency.rawValue)
+        defaults.set(currency: )
     }
     
     private func loadUserDefaults() {

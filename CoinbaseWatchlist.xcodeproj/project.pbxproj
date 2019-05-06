@@ -11,10 +11,11 @@
 		BF22624B22611285002AFBFD /* CoinTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF22624A22611285002AFBFD /* CoinTableViewCell.swift */; };
 		BF22627C2262DE4D002AFBFD /* CoinDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF22627B2262DE4D002AFBFD /* CoinDetailViewController.swift */; };
 		BF251F73226BC63000BEA0EB /* CurrencyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF251F72226BC63000BEA0EB /* CurrencyTableViewCell.swift */; };
+		BFAD62FA2280BCD800BE5D22 /* UserDefaultsExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFAD62F92280BCD800BE5D22 /* UserDefaultsExtension.swift */; };
 		BFBAED7A2266C4BC0011C2D5 /* CurrencyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFBAED792266C4BC0011C2D5 /* CurrencyViewController.swift */; };
 		BFBAED7C2267A0A50011C2D5 /* Currency.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFBAED7B2267A0A50011C2D5 /* Currency.swift */; };
 		BFBAED7E2267AB010011C2D5 /* CurrencyModelController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFBAED7D2267AB010011C2D5 /* CurrencyModelController.swift */; };
-		BFC0BBF12264EBA600120B2D /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFC0BBF02264EBA600120B2D /* Extensions.swift */; };
+		BFC0BBF12264EBA600120B2D /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFC0BBF02264EBA600120B2D /* UIColorExtension.swift */; };
 		BFF3BC1D225FEB8F002BABEA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF3BC1C225FEB8F002BABEA /* AppDelegate.swift */; };
 		BFF3BC1F225FEB8F002BABEA /* CoinViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF3BC1E225FEB8F002BABEA /* CoinViewController.swift */; };
 		BFF3BC22225FEB8F002BABEA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BFF3BC20225FEB8F002BABEA /* Main.storyboard */; };
@@ -46,10 +47,11 @@
 		BF22624A22611285002AFBFD /* CoinTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinTableViewCell.swift; sourceTree = "<group>"; };
 		BF22627B2262DE4D002AFBFD /* CoinDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinDetailViewController.swift; sourceTree = "<group>"; };
 		BF251F72226BC63000BEA0EB /* CurrencyTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyTableViewCell.swift; sourceTree = "<group>"; };
+		BFAD62F92280BCD800BE5D22 /* UserDefaultsExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsExtension.swift; sourceTree = "<group>"; };
 		BFBAED792266C4BC0011C2D5 /* CurrencyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyViewController.swift; sourceTree = "<group>"; };
 		BFBAED7B2267A0A50011C2D5 /* Currency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Currency.swift; sourceTree = "<group>"; };
 		BFBAED7D2267AB010011C2D5 /* CurrencyModelController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyModelController.swift; sourceTree = "<group>"; };
-		BFC0BBF02264EBA600120B2D /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		BFC0BBF02264EBA600120B2D /* UIColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
 		BFF3BC19225FEB8F002BABEA /* CoinbaseWatchlist.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoinbaseWatchlist.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BFF3BC1C225FEB8F002BABEA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BFF3BC1E225FEB8F002BABEA /* CoinViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinViewController.swift; sourceTree = "<group>"; };
@@ -97,6 +99,15 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		BFAD62FB2280BD1A00BE5D22 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				BFC0BBF02264EBA600120B2D /* UIColorExtension.swift */,
+				BFAD62F92280BCD800BE5D22 /* UserDefaultsExtension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		BFBAED7F2267AFF20011C2D5 /* ModelControllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -129,6 +140,7 @@
 		BFF3BC1B225FEB8F002BABEA /* CoinbaseWatchlist */ = {
 			isa = PBXGroup;
 			children = (
+				BFAD62FB2280BD1A00BE5D22 /* Extensions */,
 				BFF3BC1C225FEB8F002BABEA /* AppDelegate.swift */,
 				BFF3BC4722602126002BABEA /* Models */,
 				BF22624922611260002AFBFD /* Views */,
@@ -139,7 +151,6 @@
 				BFF3BC28225FEB91002BABEA /* LaunchScreen.storyboard */,
 				BFF3BC2B225FEB91002BABEA /* Info.plist */,
 				BFF3BC23225FEB8F002BABEA /* CoinbaseWatchlist.xcdatamodeld */,
-				BFC0BBF02264EBA600120B2D /* Extensions.swift */,
 			);
 			path = CoinbaseWatchlist;
 			sourceTree = "<group>";
@@ -352,7 +363,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BFF3BC1F225FEB8F002BABEA /* CoinViewController.swift in Sources */,
-				BFC0BBF12264EBA600120B2D /* Extensions.swift in Sources */,
+				BFC0BBF12264EBA600120B2D /* UIColorExtension.swift in Sources */,
 				BFF3BC25225FEB8F002BABEA /* CoinbaseWatchlist.xcdatamodeld in Sources */,
 				BFF3BC40225FEC2F002BABEA /* CoinbaseAPI.swift in Sources */,
 				BFF3BC4422601FBF002BABEA /* CoinModelController.swift in Sources */,
@@ -363,6 +374,7 @@
 				BFF3BC42225FF29E002BABEA /* Coin.swift in Sources */,
 				BFF3BC1D225FEB8F002BABEA /* AppDelegate.swift in Sources */,
 				BF22624B22611285002AFBFD /* CoinTableViewCell.swift in Sources */,
+				BFAD62FA2280BCD800BE5D22 /* UserDefaultsExtension.swift in Sources */,
 				BFBAED7A2266C4BC0011C2D5 /* CurrencyViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
