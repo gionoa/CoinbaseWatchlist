@@ -106,23 +106,33 @@ extension CurrencyViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: CurrencyTableViewCell.reuseIdentifier, for: indexPath) as! CurrencyTableViewCell
         
-        
-        let model: Currency
+        let currency: Currency
         if isFiltering {
-            model = modelController.filteredDataSource[indexPath.row]
+            currency = modelController.filteredDataSource[indexPath.row]
         } else {
-            model = modelController.dataSource[indexPath.row]
+            currency = modelController.dataSource[indexPath.row]
         }
         
-        cell.configure(model)
+        cell.configure(currency)
         
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        delegate?.didSelectCurrency(currency: modelController.dataSource[indexPath.row].tickerSymbol)
-        dismiss(animated: true)
+        
+        let currency: String
+        if isFiltering {
+            currency = modelController.filteredDataSource[indexPath.row].tickerSymbol
+        } else {
+            currency = modelController.dataSource[indexPath.row].tickerSymbol
+        }
+        
+        delegate?.didSelectCurrency(currency: currency)
+        
+        dismiss(animated: true) { // will find a proper solution
+            self.dismiss(animated: true)
+        }
     }
 }
 
