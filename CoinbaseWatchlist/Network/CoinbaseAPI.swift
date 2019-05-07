@@ -14,11 +14,6 @@ enum NetworkError: Error {
     case decodingError(String)
 }
 
-enum CoinbaseQuery {
-    case coin
-    case currency
-}
-
 struct CoinbaseAPI {
     
     // MARK: - Properties

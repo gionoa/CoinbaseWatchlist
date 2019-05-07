@@ -18,23 +18,25 @@ class CoinModelController {
     }
     
     private let tickerSymbols = ["BTC", "ETH", "BCH", "LTC", "ETC", "USDC", "ZEC", "ZRX", "BAT", "XRP", "XLM"]
-    var currency = "USD"
+    var selectedCurrency = "USD"
     
     // MARK: - Network
     func fetchData(completion: @escaping (Error?) -> Void) {
-        if dataSource.count > 0 { dataSource = [Coin]() }
+        if dataSource.isEmpty == false { dataSource = [Coin]() }
         
         var error = NetworkError.decodingError("")
         let dispatchGroup = DispatchGroup()
         
+        
         for tickerSymbol in tickerSymbols {
             
             dispatchGroup.enter()
-            fetchCoin(tickerSymbol: tickerSymbol, currency: currency) { [weak self] result in
+            
+            fetchCoin(tickerSymbol: tickerSymbol, currency: selectedCurrency) { [weak self] result in
                 switch result {
                 case .success(let coin):
                     self?.dataSource.append(coin)
-                    
+                    // save
                 case .failure(let failureError):
                     error = failureError
                 }
@@ -64,6 +66,7 @@ class CoinModelController {
         }
     }
     
+    // MARK: - Helpers
     func coin(at index: Int) -> Coin {
         return dataSource[index]
     }
@@ -71,6 +74,6 @@ class CoinModelController {
 
 extension CoinModelController {
     func currencyDidChange(_ currency: String) {
-        self.currency = currency
+        self.selectedCurrency = currency
     }
 }

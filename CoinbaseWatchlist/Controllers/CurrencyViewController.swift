@@ -8,14 +8,17 @@
 
 import UIKit
 
+// MARK: - Currency Delegate Protocol
 protocol CurrencyDelegate: class {
     func didSelectCurrency(currency: String)
 }
 
 class CurrencyViewController: UIViewController {
     
+    // MARK: - Delegate
     weak var delegate: CurrencyDelegate?
     
+    // MARK: - Properties
     private lazy var tableView: UITableView = {
         let tableView = UITableView(frame: .zero, style: .plain)
         tableView.cellLayoutMarginsFollowReadableWidth = true
@@ -40,6 +43,7 @@ class CurrencyViewController: UIViewController {
         return searchController.isActive && !searchBarIsEmpty
     }
     
+    // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -53,6 +57,7 @@ class CurrencyViewController: UIViewController {
         tableView.frame = view.bounds
     }
     
+    // MARK: - Setup
     private func setupUI() {
         title = NSLocalizedString("Currencies", comment: "")
         
@@ -77,17 +82,20 @@ class CurrencyViewController: UIViewController {
         searchController.searchResultsUpdater = self
         searchController.obscuresBackgroundDuringPresentation = false
         searchController.searchBar.placeholder = "Search Currencies"
+        
         navigationItem.searchController = searchController
         navigationItem.hidesSearchBarWhenScrolling = false
         definesPresentationContext = true
     }
     
+    // MARK: - Actions
     @objc private func cancelButtonTapped(_ sender: UIBarButtonItem) {
         self.dismiss(animated: true)
     }
 }
 
 extension CurrencyViewController: UITableViewDelegate, UITableViewDataSource {
+    // MARK: - TableViewDelegate / TableViewDataSource
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if isFiltering {
             return modelController.filteredDataSource.count
@@ -119,7 +127,7 @@ extension CurrencyViewController: UITableViewDelegate, UITableViewDataSource {
 }
 
 extension CurrencyViewController: UISearchResultsUpdating {
-
+    // MARK: - SearchResultsUpdating
     func updateSearchResults(for searchController: UISearchController) {
         guard let searchText = searchController.searchBar.text?.lowercased(),
               searchText.isEmpty == false else { return }

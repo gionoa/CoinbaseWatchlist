@@ -8,22 +8,23 @@
 
 import Foundation
 
-enum Keys: String {
-    case selectedCurrency
-    case currencyList
-}
-
 extension UserDefaults {
-    func set(currency: String, forKey key: String) {
-        self.set(currency, forKey: key)
-    }
 
-    func set(currencyList: [Currency], forKey key: String) {
-        self.set(currencyList, forKey: key)
+    // MARK: - Keys
+    private struct Keys {
+        static let selectedCurrency = "selectedCurrency"
     }
     
-    func selectedCurrency(forKey key: String) -> String {
-        guard let selectedCurrency = self.string(forKey: key) else { return "USD" }
+    // MARK: - Write
+    class func set(currency: String) {
+        UserDefaults.standard.set(currency, forKey: UserDefaults.Keys.selectedCurrency)
+    }
+    
+    // MARK: - Read
+    class var selectedCurrency: String {
+        guard let selectedCurrency = UserDefaults.standard.string(forKey: UserDefaults.Keys.selectedCurrency) else {
+            return "USD"
+        }
         return selectedCurrency
     }
 }

@@ -35,7 +35,7 @@ class CoinViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        loadUserDefaults()
+        loadSelectedCurrency()
         setupNavBar()
         
         modelController.fetchData() { error in
@@ -46,36 +46,32 @@ class CoinViewController: UIViewController {
             self.tableView.reloadData()
         }
     }
-
-    // MARK: - Setup
-    private func setupNavBar() {
-        navigationController?.navigationBar.prefersLargeTitles = true
-        title = "Coinbase Markets"
-        
-        currencyButton = UIBarButtonItem(title: modelController.currency, style: .plain, target: self, action: #selector(barButtonTapped(_:)))
-        navigationItem.rightBarButtonItem = currencyButton
-    }
     
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
         
         tableView.frame = view.bounds
     }
+
+    // MARK: - Setup
+    private func setupNavBar() {
+        navigationController?.navigationBar.prefersLargeTitles = true
+        title = "Coinbase Markets"
+        
+        currencyButton = UIBarButtonItem(title: modelController.selectedCurrency, style: .plain, target: self, action: #selector(barButtonTapped(_:)))
+        navigationItem.rightBarButtonItem = currencyButton
+    }
     
     private func setupUI() {
         view.backgroundColor = .white
     }
     
-    private func saveUserDefaults() {
-        defaults.set(currency: )
+    // MARK: - UserDefaults
+    private func loadSelectedCurrency() {
+        modelController.selectedCurrency = UserDefaults.selectedCurrency
     }
     
-    private func loadUserDefaults() {
-        if let currency = defaults.string(forKey: Keys.currency.rawValue) {
-            modelController.currency = currency
-        }
-    }
-    
+    // MARK: - Actions
     @objc private func barButtonTapped(_ sender: UIBarButtonItem) {
         let navigationController = UINavigationController(rootViewController: CurrencyViewController())
         
@@ -97,7 +93,7 @@ extension CoinViewController: UITableViewDelegate, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: CoinTableViewCell.reuseID, for: indexPath) as! CoinTableViewCell
         
         let coin = modelController.coin(at: indexPath.row)
-        cell.configure(coin, currency: modelController.currency)
+        cell.configure(coin, currency: modelController.selectedCurrency)
         cell.layoutIfNeeded()
         
         return cell
@@ -119,8 +115,9 @@ extension CoinViewController: CurrencyDelegate {
     func didSelectCurrency(currency: String) {
         modelController.currencyDidChange(currency)
         currencyButton.title = currency
-        saveUserDefaults()
         
+        UserDefaults.set(currency: modelController.selectedCurrency)
+
         modelController.fetchData { (error) in
             DispatchQueue.main.async {
                 self.tableView.reloadData()
