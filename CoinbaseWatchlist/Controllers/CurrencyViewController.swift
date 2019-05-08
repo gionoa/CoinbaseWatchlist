@@ -130,8 +130,19 @@ extension CurrencyViewController: UITableViewDelegate, UITableViewDataSource {
         
         delegate?.didSelectCurrency(currency: currency)
         
-        dismiss(animated: true) { // will find a proper solution
-            self.dismiss(animated: true)
+        dismissAfterCurrencySelection()
+    }
+    
+    // MARK: - Helpers
+    
+    // will find a better solution
+    fileprivate func dismissAfterCurrencySelection() {
+        if searchController.isActive {
+            dismiss(animated: false) {
+                self.dismiss(animated: true)
+            }
+        } else {
+            dismiss(animated: true)
         }
     }
 }
