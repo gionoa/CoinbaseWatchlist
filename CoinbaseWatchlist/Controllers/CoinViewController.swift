@@ -58,7 +58,7 @@ class CoinViewController: UIViewController {
         navigationController?.navigationBar.prefersLargeTitles = true
         title = "Coinbase Markets"
         
-        currencyButton = UIBarButtonItem(title: modelController.selectedCurrency, style: .plain, target: self, action: #selector(barButtonTapped(_:)))
+        currencyButton = UIBarButtonItem(title: modelController.selectedCurrency, style: .plain, target: self, action: #selector(currencyButtonTapped(_:)))
         navigationItem.rightBarButtonItem = currencyButton
     }
     
@@ -72,13 +72,13 @@ class CoinViewController: UIViewController {
     }
     
     // MARK: - Actions
-    @objc private func barButtonTapped(_ sender: UIBarButtonItem) {
-        let navigationController = UINavigationController(rootViewController: CurrencyViewController())
+    @objc private func currencyButtonTapped(_ sender: UIBarButtonItem) {
+        let currencyViewController = CurrencyViewController(selectedCurrencyTickerSymbol: modelController.selectedCurrency)
+        let currencyNavigationController = UINavigationController(rootViewController: currencyViewController)
         
-        let currencyVC = navigationController.viewControllers.first as? CurrencyViewController
-        currencyVC?.delegate = self
+        currencyViewController.delegate = self
         
-        present(navigationController, animated: true)
+        present(currencyNavigationController, animated: true)
     }
 }
 
@@ -124,6 +124,4 @@ extension CoinViewController: CurrencyDelegate {
             }
         }
     }
-    
-    
 }

@@ -11,7 +11,7 @@ import Foundation
 class CurrencyModelController {
     
     // MARK: - Currency List URL
-    fileprivate let archiveURL = getDocumentsDirectory().appendingPathComponent("CurrencyList")
+    fileprivate let archiveURL = getDocumentsDirectory()
     
     // MARK: - Properties
     private (set) var dataSource = [Currency]()
@@ -22,12 +22,16 @@ class CurrencyModelController {
     func fetchCurrencies(completion: @escaping (Error?) -> Void) {
 
         do {
-            let data = try Data(contentsOf: archiveURL)
+            guard let url = archiveURL else { return }
+            
+            let data = try Data(contentsOf: url)
+            
             if let currencyList = try NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(data) as? [Currency] {
                 dataSource = currencyList
                 completion(nil)
                 return
             }
+            
         } catch let unarchivingError {
             print(unarchivingError.localizedDescription)
         }
@@ -38,7 +42,7 @@ class CurrencyModelController {
                     self.dataSource = currencies
                     
                     do {
-                        try self.write(currencies, to: self.archiveURL)
+                        try self.write(currencies, to: self.archiveURL!)
                     } catch let archivingError {
                         print(archivingError)
                     }
@@ -57,8 +61,34 @@ class CurrencyModelController {
     }
     
     // MARK: - Helpers
-    fileprivate static func getDocumentsDirectory() -> URL {
-        let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
-        return paths[0]
+    fileprivate static func getDocumentsDirectory() -> URL? {
+        let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first?.appendingPathComponent("CurrencyList")
+        return paths
+    }
+
+    fileprivate func tryLoadingData(url: URL ) {
+        
+    }
+    // This assumes that the index path returned will be from either the filtered/unfiltered array.
+    // It's being determined both here as well as in the CoinVC class (searchBarIsEmpty)
+    func index(forTickerSymbol tickerSymbol: String) -> Int {
+        let collection: [Currency]
+        
+        if filteredDataSource.isEmpty {
+            collection = dataSource
+            
+        } else {
+            collection = filteredDataSource
+        }
+        
+        var tickerSymbolIndex = Int()
+        // firstIndex(where:)
+        for (index, currency) in collection.enumerated() {
+            if tickerSymbol == currency.tickerSymbol {
+                tickerSymbolIndex = index
+                break
+            }
+        }
+        return tickerSymbolIndex
     }
 }

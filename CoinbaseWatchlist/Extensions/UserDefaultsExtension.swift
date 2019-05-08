@@ -16,12 +16,12 @@ extension UserDefaults {
     }
     
     // MARK: - Write
-    class func set(currency: String) {
+    static func set(currency: String) {
         UserDefaults.standard.set(currency, forKey: UserDefaults.Keys.selectedCurrency)
     }
     
     // MARK: - Read
-    class var selectedCurrency: String {
+    static var selectedCurrency: String {
         guard let selectedCurrency = UserDefaults.standard.string(forKey: UserDefaults.Keys.selectedCurrency) else {
             return "USD"
         }

@@ -43,7 +43,28 @@ class CurrencyViewController: UIViewController {
         return searchController.isActive && !searchBarIsEmpty
     }
     
+    private var selectedTickerSymbolIndex: Int!
+    
     // MARK: - Lifecycle
+    
+    init(selectedCurrencyTickerSymbol: String) {
+        super.init(nibName: nil, bundle: nil)
+        
+        modelController.fetchCurrencies { (error) in
+            if let error = error {
+                print(error.localizedDescription)
+            }
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+                self.selectedTickerSymbolIndex = self.modelController.index(forTickerSymbol: selectedCurrencyTickerSymbol)
+            }
+        }
+
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -68,14 +89,6 @@ class CurrencyViewController: UIViewController {
         view.backgroundColor = .white
         view.addSubview(tableView)
         
-        modelController.fetchCurrencies { (error) in
-            if let error = error {
-                print(error.localizedDescription)
-            }
-            DispatchQueue.main.async {
-                self.tableView.reloadData()
-            }
-        }
     }
     
     fileprivate func setupSearchController() {
@@ -106,11 +119,23 @@ extension CurrencyViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: CurrencyTableViewCell.reuseIdentifier, for: indexPath) as! CurrencyTableViewCell
         
+        if indexPath.row == selectedTickerSymbolIndex {
+            cell.accessoryType = .checkmark
+        } else {
+            cell.accessoryType = .none
+        }
+        
         let currency: Currency
         if isFiltering {
             currency = modelController.filteredDataSource[indexPath.row]
         } else {
             currency = modelController.dataSource[indexPath.row]
+        }
+        
+        if selectedTickerSymbolIndex == indexPath.row {
+            cell.accessoryType = .checkmark
+        } else {
+            cell.accessoryType = .none
         }
         
         cell.configure(currency)
@@ -128,6 +153,7 @@ extension CurrencyViewController: UITableViewDelegate, UITableViewDataSource {
             currency = modelController.dataSource[indexPath.row].tickerSymbol
         }
         
+        selectedTickerSymbolIndex = modelController.index(forTickerSymbol: currency)
         delegate?.didSelectCurrency(currency: currency)
         
         dismissAfterCurrencySelection()
