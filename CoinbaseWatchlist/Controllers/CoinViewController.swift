@@ -8,7 +8,6 @@
 
 import UIKit
 
-
 class CoinViewController: UIViewController {
     
     // MARK: - Properties
@@ -29,8 +28,6 @@ class CoinViewController: UIViewController {
     
     private var currencyButton: UIBarButtonItem!
     
-    private let defaults = UserDefaults.standard
-    
     // MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,8 +37,9 @@ class CoinViewController: UIViewController {
         
         modelController.fetchData() { error in
             if let error = error {
-                print(error)
-                // alert
+                let errorAlert = UIAlertController(title: "Error", message: error.localizedDescription, preferredStyle: .alert)
+                errorAlert.addAction(UIAlertAction(title: "Dismiss", style: .default))
+                self.present(errorAlert, animated: true)
             }
             self.tableView.reloadData()
         }
